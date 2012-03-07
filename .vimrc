@@ -1,33 +1,48 @@
-"============= General Config =============
+"============= Runtime Stuff =============
 
-" System wide settings for Debian are in $VIMRUNTIME/debian.vim (usually 
-" just /usr/share/vim/vimcurrent/debian.vim) and sourced by the call to :runtime
-runtime! debian.vim
+" windows stuff (ignore on linux)
 set nocompatible
+source $VIMRUNTIME/vimrc_example.vim
+source $VIMRUNTIME/mswin.vim
 
-set hidden 		" buffers can exist in background without being in a window
+runtime! debian.vim
+
+"============= Buffers =============
+
+set hidden 	" buffers can exist in background without being in a window
+
+"============= Spell Check =============
 
 set spell
+set spelllang=en
+
+"============= Line Numbers =============
 
 set nu 		" line numbers
 set cul		" highlight cursor line 
 set paste	" pasting with auto-indent
+
+"============= Scrolling =============
 
 set cursorline
 set cursorcolumn
 
 set scrolloff=3	" 3 line offset when scrolling
 
+"============= Formatting & Behavior =============
+
 set formatoptions=l
 set lbr
 behave mswin " will accept ctrl+c, ctrl+c, ctrl+v if you slip up
+
+"============= Search =============
 
 set showcmd		" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
 "set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
 
-set wildmenu
+"============= Misc =============
 
 set autowrite		" Automatically save before commands like :next and :make
 set mouse=a		" Enable mouse usage (all modes) in terminals
@@ -42,7 +57,7 @@ filetype plugin indent on
 set autoindent
 set smartindent
 
-
+set gfn=Consolas:h10:cANSI " windows only font
 
 " ============== Status Line ==============
 "set laststatus=2
@@ -60,8 +75,8 @@ set nofoldenable
 
 "============== Completion ==============
 
-set wildmode=list:longest
 set wildmenu
+set wildmode=list:longest
 set wildignore=*.o,*.obj,*~
 
 "============== Search Settings ==============
@@ -128,3 +143,4 @@ else
 endif
 
 colorscheme solarized
+
