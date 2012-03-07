@@ -58,6 +58,7 @@ set autoindent
 set smartindent
 
 set gfn=Consolas:h10:cANSI " windows only font
+set gfn=Inconsolata\ Medium\ 12
 
 " ============== Status Line ==============
 "set laststatus=2
