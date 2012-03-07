@@ -11,15 +11,20 @@ On Linux and Mac:
 
     rm -rf .vim
     rm .vimrc
-    git clone git@github.com:maciakl/fofou.git
+    git clone git@github.com:maciakl/.vim.git
     ln -s .vimrc .vim/.vimrc
+    cd .vim
+    git submodule init
+    git submodule update
 
 On Windows:
 
     rmdir /s /q vimfiles
     del _vimrc
-    git clone path/to/your/.vim.git
+    git clone git@github.com:maciakl/.vim.git
     mklink /d vimfiles .vim
     mklink _vimrc .vim\.vimrc
-
+    cd .vim
+    git submodule init
+    git submodule update
 
