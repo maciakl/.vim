@@ -12,7 +12,6 @@ if has('win32')
 	set gfn=Consolas:h10:cANSI " windows only font
 endif
 
-
 "============= Key Mappings =============
 
 " press ; to issue commands in normal mode (no more shift holding)
@@ -71,6 +70,12 @@ set smartcase		" Do smart case matching
 set history=1000
 set undolevels=1000
 
+
+if v:version >= 730
+    set undofile        " keep a persistent backup file
+endif
+
+
 "============= Misc =============
 
 set autowrite		" Automatically save before commands like :next and :make
@@ -92,11 +97,12 @@ set smartindent
 set backspace=indent,eol,start 	" backspace over everything in insert mode
 
 " ============== Status Line ==============
-"set laststatus=2
-"set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
 
 set ls=2 " Always show status line
 set laststatus=2
+
+" using plugins/statusline.vim instead
+"set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
 
 "============== Folding ==============
 
