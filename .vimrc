@@ -13,6 +13,22 @@ if has('win32')
 endif
 
 
+"============= Key Mappings =============
+
+" press ; to issue commands in normal mode (no more shift holding)
+nnoremap ; :
+
+" move by screen lines, not by real lines - great for creative writing
+nnoremap j gj
+nnoremap k gk
+
+" pressing \<space> clears the search highlights
+nmap <silent> <leader><space> :nohlsearch<CR>
+
+" use regular regex syntax rather than vim regex
+nnoremap / /\v
+vnoremap / /\v
+
 "============= Buffers =============
 
 set hidden 	" buffers can exist in background without being in a window
@@ -39,19 +55,28 @@ set scrolloff=3	" 3 line offset when scrolling
 
 set formatoptions=l
 set lbr
-behave mswin " will accept ctrl+c, ctrl+c, ctrl+v if you slip up
+behave mswin 		" will accept ctrl+c, ctrl+c, ctrl+v if you slip up
 
-"============= Search =============
+au FocusLost * :wa	" save when switching focus
+
+"============= Search & Matching =============
 
 set showcmd		" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
-"set ignorecase		" Do case insensitive matching
+set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
+
+"============= History =============
+
+set history=1000
+set undolevels=1000
 
 "============= Misc =============
 
 set autowrite		" Automatically save before commands like :next and :make
 set mouse=a		" Enable mouse usage (all modes) in terminals
+
+
 
 "=========== Syntax Highlighting & Indents ==============
 syntax on
@@ -60,10 +85,11 @@ filetype indent on
 filetype plugin on
 filetype plugin indent on
 
-set autoindent
+set autoindent 		" always ndent
+set copyindent 		" copy previous indent on autoindenting
 set smartindent
 
-
+set backspace=indent,eol,start 	" backspace over everything in insert mode
 
 " ============== Status Line ==============
 "set laststatus=2
@@ -83,7 +109,7 @@ set nofoldenable
 
 set wildmenu
 set wildmode=list:longest
-set wildignore=*.o,*.obj,*~
+set wildignore=*.swp,*.bak,*.pyc,*.class,*.o,*.obj,*~
 
 "============== Search Settings ==============
 
@@ -105,9 +131,7 @@ set nowb
 "    \| exe "normal g'\"" | endif
 "endif
 
-" Uncomment the following to have Vim load indentation rules according to the
-" detected filetype. Per default Debian Vim only load filetype specific
-" plugins.
+" Load indentation rules according to the detected filetype. 
 if has("autocmd")
   filetype indent on
 endif
@@ -115,7 +139,6 @@ endif
 
 
 " Source a global configuration file if available
-" XXX Deprecated, please move your changes here in /etc/vim/vimrc
 if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
@@ -140,8 +163,9 @@ let g:tex_flavor='latex'
 call pathogen#infect()
 
 
-"============== Pathogen Plugin Settings ==============
-"
+"============== Other Settings ==============
+
+" Solarized theme setup
 if has('gui_running')
     set background=light
 else
@@ -150,3 +174,5 @@ endif
 
 colorscheme solarized
 
+" map key for the Gundo undo history plugin
+nnoremap <F5> :GundoToggle<CR>
