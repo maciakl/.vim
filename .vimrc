@@ -1,11 +1,17 @@
 "============= Runtime Stuff =============
 
-" windows stuff (ignore on linux)
 set nocompatible
-source $VIMRUNTIME/vimrc_example.vim
-source $VIMRUNTIME/mswin.vim
-
 runtime! debian.vim
+
+set gfn=Inconsolata\ Medium\ 12
+
+" windows stuff (ignore on linux)
+if has('win32')
+	source $VIMRUNTIME/vimrc_example.vim
+	source $VIMRUNTIME/mswin.vim
+	set gfn=Consolas:h10:cANSI " windows only font
+endif
+
 
 "============= Buffers =============
 
@@ -57,8 +63,7 @@ filetype plugin indent on
 set autoindent
 set smartindent
 
-set gfn=Consolas:h10:cANSI " windows only font
-set gfn=Inconsolata\ Medium\ 12
+
 
 " ============== Status Line ==============
 "set laststatus=2
