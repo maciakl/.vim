@@ -19,9 +19,6 @@
 [submodule "bundle/vim-align"]
 	path = bundle/vim-align
 	url = https://github.com/tsaleh/vim-align.git
-[submodule "bundle/lusty-juggler"]
-	path = bundle/lusty-juggler
-	url = https://github.com/sjbach/lusty.git
 [submodule "bundle/gundo"]
 	path = bundle/gundo
 	url = https://github.com/sjl/gundo.vim
