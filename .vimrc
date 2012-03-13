@@ -171,13 +171,23 @@ call pathogen#infect()
 
 "============== Other Settings ==============
 
-" Solarized theme setup
+" Solarized color scheme setup
 if has('gui_running')
+    " use the light (yellowish background) scheme in GUI
     set background=light
 else
+    " change to dark color scheme on terminal
     set background=dark
+
+    " if running on windows, degrade to 256 colors because the windows
+    " terminal sucks very, very much and vim in GitBash looks awful
+    if has('win32')
+    	    let g:solarized_termcolors=256
+    endif
+
 endif
 
+" enable solarized color scheme
 colorscheme solarized
 
 " bind NERDTree to F1 (we don't need help)
