@@ -180,5 +180,5 @@ endif
 
 colorscheme solarized
 
-" map key for the Gundo undo history plugin
-nnoremap <F5> :GundoToggle<CR>
+" bind NERDTree to F1 (we don't need help)
+nnoremap <f1> :NERDTreeToggle<cr>
