@@ -182,7 +182,7 @@ else
     " if running on windows, degrade to 256 colors because the windows
     " terminal sucks very, very much and vim in GitBash looks awful
     if has('win32')
-    	    let g:solarized_termcolors=256
+    	    let g:solarized_termcolors
     endif
 
 endif
