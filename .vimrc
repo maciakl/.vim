@@ -22,7 +22,15 @@ nnoremap j gj
 nnoremap k gk
 
 " pressing \<space> clears the search highlights
-nmap <silent> <leader><space> :nohlsearch<CR>
+nmap <silent> <leader><space> :nohlsearch<CR> 
+
+" use jj to quickly escape to normal mode while typing 
+inoremap jj <ESC>
+
+" toggle paste mode (to paste properly indented text)
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
 
 " use regular regex syntax rather than vim regex
 nnoremap / /\v
