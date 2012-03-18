@@ -12,7 +12,7 @@ if has('win32')
 	set gfn=Consolas:h10:cANSI " windows only font
 endif
 
-"============= Key Mappings =============
+"============= Key Mappings ============= 
 
 " press ; to issue commands in normal mode (no more shift holding)
 nnoremap ; :
@@ -21,8 +21,16 @@ nnoremap ; :
 nnoremap j gj
 nnoremap k gk
 
+" also in visual mode
+vnoremap j gj
+vnoremap k gk
+
+
 " pressing \<space> clears the search highlights
 nmap <silent> <leader><space> :nohlsearch<CR> 
+
+" break a line at cursor 
+nmap <silent> <leader><CR> i<CR><ESC>
 
 " use jj to quickly escape to normal mode while typing 
 inoremap jj <ESC>
@@ -42,7 +50,7 @@ set hidden 	" buffers can exist in background without being in a window
 
 "============= Spell Check =============
 
-set spell
+set spell 		"enable inline spellcheck
 set spelllang=en
 
 "============= Line Numbers =============
@@ -53,6 +61,7 @@ set paste	" pasting with auto-indent
 
 "============= Scrolling =============
 
+" show line and column markers
 set cursorline
 set cursorcolumn
 
@@ -60,11 +69,13 @@ set scrolloff=3	" 3 line offset when scrolling
 
 "============= Formatting & Behavior =============
 
+" enable soft word wrap
 set formatoptions=l
 set lbr
-behave mswin 		" will accept ctrl+c, ctrl+c, ctrl+v if you slip up
 
-au FocusLost * :wa	" save when switching focus
+behave mswin 	" will accept ctrl+c, ctrl+c, ctrl+v if you slip up
+
+au FocusLost * silent! :wa	" save when switching focus 
 
 "============= Search & Matching =============
 
@@ -75,6 +86,7 @@ set smartcase		" Do smart case matching
 
 "============= History =============
 
+" save more in undo history
 set history=1000
 set undolevels=1000
 
@@ -98,7 +110,7 @@ filetype indent on
 filetype plugin on
 filetype plugin indent on
 
-set autoindent 		" always ndent
+set autoindent 		" always indent
 set copyindent 		" copy previous indent on autoindenting
 set smartindent
 
@@ -108,9 +120,6 @@ set backspace=indent,eol,start 	" backspace over everything in insert mode
 
 set ls=2 " Always show status line
 set laststatus=2
-
-" using plugins/statusline.vim instead
-"set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
 
 "============== Folding ==============
 
@@ -138,19 +147,10 @@ set nowb
 
 "============== Misc ==============
 
-" Have Vim jump to the last position when
-" reopening a file
-"if has("autocmd")
-"  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-"    \| exe "normal g'\"" | endif
-"endif
-
 " Load indentation rules according to the detected filetype. 
 if has("autocmd")
   filetype indent on
 endif
-
-
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
