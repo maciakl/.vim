@@ -84,6 +84,12 @@ set showmatch		" Show matching brackets.
 set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
 
+set incsearch		" incremental search
+set hlsearch		" highlights searches
+
+set noerrorbells
+set novisualbell
+
 "============= History =============
 
 " save more in undo history
@@ -133,11 +139,6 @@ set nofoldenable
 set wildmenu
 set wildmode=list:longest
 set wildignore=*.swp,*.bak,*.pyc,*.class,*.o,*.obj,*~
-
-"============== Search Settings ==============
-
-set incsearch		" incremental search
-set hlsearch		" highlights searches
 
 "============== Swap Files ==============
 
