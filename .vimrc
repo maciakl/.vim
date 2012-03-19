@@ -50,7 +50,7 @@ set hidden 	" buffers can exist in background without being in a window
 
 "============= Spell Check =============
 
-set spell 		"enable inline spellcheck
+set spell 		"enable in-line spell check
 set spelllang=en
 
 "============= Line Numbers =============
@@ -107,7 +107,8 @@ endif
 set autowrite		" Automatically save before commands like :next and :make
 set mouse=a		" Enable mouse usage (all modes) in terminals
 
-
+" sudo save file with w!
+cmap w!! w !sudo tee % >/dev/null
 
 "=========== Syntax Highlighting & Indents ==============
 syntax on
