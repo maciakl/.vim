@@ -207,3 +207,5 @@ nnoremap <f1> :NERDTreeToggle<cr>
 if has('win32')
    let g:snippets_dir="c:/Users/luke/.vim/bundle/snipmate/snippets/,c:/Users/luke/.vim/bundle/snipmate-custom-snippets/snippets"
 endif
+
+nnoremap <f12> :!ctags -R<cr>
