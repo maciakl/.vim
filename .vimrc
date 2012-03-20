@@ -202,3 +202,8 @@ colorscheme solarized
 
 " bind NERDTree to F1 (we don't need help)
 nnoremap <f1> :NERDTreeToggle<cr>
+
+" force snipmate accept custom defined snippets on windows
+if has('win32')
+   let g:snippets_dir="c:/Users/luke/.vim/bundle/snipmate/snippets/,c:/Users/luke/.vim/bundle/snipmate-custom-snippets/snippets"
+endif
