@@ -25,6 +25,8 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
+" run ctags on current directory recursively
+nnoremap <f6> :!ctags -R<cr>
 
 " pressing \<space> clears the search highlights
 nmap <silent> <leader><space> :nohlsearch<CR> 
@@ -179,7 +181,7 @@ let g:tex_flavor='latex'
 call pathogen#infect()
 
 
-"============== Other Settings ==============
+"============== Plugin Specific Settings ==============
 
 " Solarized color scheme setup
 if has('gui_running')
@@ -200,12 +202,17 @@ endif
 " enable solarized color scheme
 colorscheme solarized
 
+
+
 " bind NERDTree to F1 (we don't need help)
 nnoremap <f1> :NERDTreeToggle<cr>
+
 
 " force snipmate accept custom defined snippets on windows
 if has('win32')
    let g:snippets_dir="c:/Users/luke/.vim/bundle/snipmate/snippets/,c:/Users/luke/.vim/bundle/snipmate-custom-snippets/snippets"
 endif
 
-nnoremap <f12> :!ctags -R<cr>
+
+" MiniBufExpl Plugin Settings
+let g:miniBufExplMapCTabSwitchBufs = 1 
