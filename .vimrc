@@ -107,7 +107,7 @@ set undolevels=1000
 
 
 if v:version >= 730
-    set undofile        " keep a persistent backup file
+	set undofile        " keep a persistent backup file
 endif
 
 
@@ -160,12 +160,12 @@ set nowb
 
 " Load indentation rules according to the detected filetype. 
 if has("autocmd")
-  filetype indent on
+	filetype indent on
 endif
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
-  source /etc/vim/vimrc.local
+	source /etc/vim/vimrc.local
 endif
 
 
@@ -192,17 +192,17 @@ call pathogen#infect()
 
 " Solarized color scheme setup
 if has('gui_running')
-    " use the light (yellowish background) scheme in GUI
-    set background=light
+	" use the light (yellowish background) scheme in GUI
+	set background=light
 else
-    " change to dark color scheme on terminal
-    set background=dark
+	" change to dark color scheme on terminal
+	set background=dark
 
-    " if running on windows, degrade to 256 colors because the windows
-    " terminal sucks very, very much and vim in GitBash looks awful
-    if has('win32')
-    	    let g:solarized_termcolors
-    endif
+	" if running on windows, degrade to 256 colors because the windows
+	" terminal sucks very, very much and vim in GitBash looks awful
+	if has('win32')
+		let g:solarized_termcolors
+	endif
 
 endif
 
@@ -219,7 +219,7 @@ nnoremap <f2> :TlistToggle<cr>
 
 " force snipmate accept custom defined snippets on windows
 if has('win32')
-   let g:snippets_dir="c:/Users/luke/.vim/bundle/snipmate/snippets/,c:/Users/luke/.vim/bundle/snipmate-custom-snippets/snippets"
+	let g:snippets_dir="c:/Users/luke/.vim/bundle/snipmate/snippets/,c:/Users/luke/.vim/bundle/snipmate-custom-snippets/snippets"
 endif
 
 
