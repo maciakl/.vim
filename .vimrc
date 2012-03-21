@@ -38,9 +38,16 @@ nmap <silent> <leader><CR> i<CR><ESC>
 inoremap jj <ESC>
 
 " toggle paste mode (to paste properly indented text)
-nnoremap <F2> :set invpaste paste?<CR>
-set pastetoggle=<F2>
+nnoremap <F3> :set invpaste paste?<CR>
+set pastetoggle=<F3>
 set showmode
+
+
+" run current PHP file through php interpreter
+:autocmd FileType php noremap <leader>p :w!<CR>:!php %<CR>
+" run current PHP file through php linter (syntax check) check
+:autocmd FileType php noremap <leader>l :!php -l %<CR>
+
 
 " use regular regex syntax rather than vim regex
 nnoremap / /\v
@@ -207,6 +214,8 @@ colorscheme solarized
 " bind NERDTree to F1 (we don't need help)
 nnoremap <f1> :NERDTreeToggle<cr>
 
+" TagList shortcut
+nnoremap <f2> :TlistToggle<cr>
 
 " force snipmate accept custom defined snippets on windows
 if has('win32')
@@ -216,3 +225,6 @@ endif
 
 " MiniBufExpl Plugin Settings
 let g:miniBufExplMapCTabSwitchBufs = 1 
+
+" phpDocumentor shortcut
+nnoremap <leader>d :call PhpDoc()<cr>
