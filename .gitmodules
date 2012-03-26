@@ -36,4 +36,4 @@
 	url = https://github.com/scrooloose/nerdcommenter.git
 [submodule "bundle/vim-neatstatus"]
 	path = bundle/vim-neatstatus
-	url = git://github.com/maciakl/vim-neatstatus.git
+	url = https://github.com/maciakl/vim-neatstatus.git
