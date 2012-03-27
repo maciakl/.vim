@@ -68,6 +68,18 @@ set nu 		" line numbers
 set cul		" highlight cursor line 
 set paste	" pasting with auto-indent
 
+" toggle between relative and absolute line numbers
+function! g:ToggleNuMode()
+	if(&rnu == 1)
+		set nu
+	else
+		set rnu
+	endif
+endfunc
+
+
+nnoremap <f5> :call g:ToggleNuMode()<cr>
+
 "============= Scrolling =============
 
 " show line and column markers
