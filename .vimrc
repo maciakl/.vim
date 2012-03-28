@@ -34,6 +34,11 @@ nmap <silent> <leader><space> :nohlsearch<CR>
 " break a line at cursor 
 nmap <silent> <leader><CR> i<CR><ESC>
 
+" insert a blank line with <leader>o and <leader>O
+nmap <silent> <leader>o o<ESC>
+nmap <silent> <leader>O O<ESC>
+
+
 " use jj to quickly escape to normal mode while typing 
 inoremap jj <ESC>
 
@@ -194,6 +199,8 @@ set grepprg=grep\ -nH\ $*
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
 
+" enable matching in HTML
+runtime macros/matchit.vim
 
 "============== Pathogen ==============
 
