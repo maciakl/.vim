@@ -32,11 +32,14 @@ nnoremap <f6> :!ctags -R<cr>
 nmap <silent> <leader><space> :nohlsearch<CR> 
 
 " break a line at cursor 
-nmap <silent> <leader><CR> i<CR><ESC>
+nnoremap <silent> <leader><CR> i<CR><ESC>
+
+" break a line at cursor 
+nnoremap <silent> <leader>h YpVr=
 
 " insert a blank line with <leader>o and <leader>O
-nmap <silent> <leader>o o<ESC>
-nmap <silent> <leader>O O<ESC>
+nnoremap <silent> <leader>o o<ESC>
+nnoremap <silent> <leader>O O<ESC>
 
 
 " use jj to quickly escape to normal mode while typing 
@@ -90,6 +93,9 @@ nnoremap <f5> :call g:ToggleNuMode()<cr>
 " show line and column markers
 set cursorline
 set cursorcolumn
+
+" highlight column 80
+set colorcolumn=80
 
 set scrolloff=3	" 3 line offset when scrolling
 
@@ -228,6 +234,9 @@ endif
 " enable solarized color scheme
 colorscheme solarized
 
+" change the color of the column 80
+" this needs to be called after solarized
+highlight ColorColumn guibg=lightyellow
 
 
 " bind NERDTree to F1 (we don't need help)
