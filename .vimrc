@@ -205,9 +205,6 @@ set grepprg=grep\ -nH\ $*
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
 
-" enable matching in HTML
-runtime macros/matchit.vim
-
 "============== Pathogen ==============
 
 call pathogen#infect()
