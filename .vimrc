@@ -253,3 +253,5 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 
 " phpDocumentor shortcut
 nnoremap <leader>d :call PhpDoc()<cr>
+
+nnoremap <F7> :GundoToggle<CR>
