@@ -77,7 +77,7 @@ set spelllang=en
 
 "============= Line Numbers =============
 
-set nu 		" line numbers
+set rnu 	" relative line numbers
 set cul		" highlight cursor line 
 set paste	" pasting with auto-indent
 
