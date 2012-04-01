@@ -56,6 +56,11 @@ set showmode
 " run current PHP file through php linter (syntax check) check
 :autocmd FileType php noremap <leader>l :!php -l %<CR>
 
+" use \y and \p to copy and paste from system clipboard
+noremap <leader>y "+y
+noremap <leader>Y "+Y
+noremap <leader>p "+p
+
 
 " use regular regex syntax rather than vim regex
 nnoremap / /\v
