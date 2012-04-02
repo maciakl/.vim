@@ -34,7 +34,7 @@ nmap <silent> <leader><space> :nohlsearch<CR>
 " break a line at cursor 
 nnoremap <silent> <leader><CR> i<CR><ESC>
 
-" break a line at cursor 
+" make a markdown heading
 nnoremap <silent> <leader>h YpVr=
 
 " insert a blank line with <leader>o and <leader>O
@@ -50,7 +50,6 @@ nnoremap <F3> :set invpaste paste?<CR>
 set pastetoggle=<F3>
 set showmode
 
-
 " run current PHP file through php interpreter
 :autocmd FileType php noremap <leader>p :w!<CR>:!php %<CR>
 " run current PHP file through php linter (syntax check) check
@@ -65,6 +64,14 @@ noremap <leader>p "+p
 " use regular regex syntax rather than vim regex
 nnoremap / /\v
 vnoremap / /\v
+
+"============= Command Aliases =============
+
+" for when you mess up and hold shift too long
+command W w
+command WQ wq
+command Wq wq
+command Q q
 
 "============= Buffers =============
 
@@ -216,6 +223,9 @@ call pathogen#infect()
 
 
 "============== Plugin Specific Settings ==============
+
+" This is necessary to make Gdiff work
+let g:miniBufExplorerMoreThanOne=3
 
 " Solarized color scheme setup
 if has('gui_running')
