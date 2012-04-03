@@ -60,6 +60,8 @@ noremap <leader>y "+y
 noremap <leader>Y "+Y
 noremap <leader>p "+p
 
+" automatically jump to last misspelled word and attempt replacing it
+noremap <leader>s [sz=
 
 " use regular regex syntax rather than vim regex
 nnoremap / /\v
