@@ -61,8 +61,11 @@ noremap <leader>Y "+Y
 noremap <leader>p "+p
 
 " automatically jump to last misspelled word and attempt replacing it
-noremap <leader>s [sz=
-noremap <leader>S [sz=1<cr><cr>
+noremap <leader>a [sz=
+noremap <leader>s [sz=1<cr><cr>
+
+" Ctrl+Backspace deletes last word
+inoremap <C-BS> <esc>bcw
 
 " use regular regex syntax rather than vim regex
 nnoremap / /\v
