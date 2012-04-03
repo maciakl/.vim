@@ -5,7 +5,7 @@ runtime! debian.vim
 
 set gfn=Inconsolata\ Medium\ 12
 
-" windows stuff (ignore on linux)
+" windows stuff (ignore on Linux)
 if has('win32')
 	source $VIMRUNTIME/vimrc_example.vim
 	source $VIMRUNTIME/mswin.vim
@@ -62,6 +62,7 @@ noremap <leader>p "+p
 
 " automatically jump to last misspelled word and attempt replacing it
 noremap <leader>s [sz=
+noremap <leader>S [sz=1<cr><cr>
 
 " use regular regex syntax rather than vim regex
 nnoremap / /\v
@@ -195,7 +196,7 @@ set nowb
 
 "============== Misc ==============
 
-" Load indentation rules according to the detected filetype. 
+" Load indentation rules according to the detected file type. 
 if has("autocmd")
 	filetype indent on
 endif
