@@ -213,6 +213,9 @@ endif
 " force txt files to be highlighted as html
 au BufRead,BufNewFile *.txt setfiletype html
 
+" force php files to be treated as php/html - necessary for snipmate to work
+au BufRead,BufNewFile *.php set filetype=php.html
+
 " IMPORTANT: grep will sometimes skip displaying the file name if you
 " search in a singe file. This will confuse Latex-Suite. Set your grep
 " program to always generate a file-name.
