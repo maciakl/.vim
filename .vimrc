@@ -63,6 +63,7 @@ noremap <leader>p "+p
 " automatically jump to last misspelled word and attempt replacing it
 noremap <leader>a [sz=
 noremap <leader>s [sz=1<cr><cr>
+inoremap <C-l> <esc>[sz=
 
 " Ctrl+Backspace deletes last word
 inoremap <C-BS> <esc>bcw
