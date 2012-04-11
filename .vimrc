@@ -72,17 +72,24 @@ inoremap <C-l> <esc>[sz=
 " Ctrl+Backspace deletes last word
 inoremap <C-BS> <esc>bcw
 
+" open my vimrc in a split
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+" now source it
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
 " use regular regex syntax rather than vim regex
 nnoremap / /\v
 vnoremap / /\v
 
 "============= Command Aliases =============
 
-" for when you mess up and hold shift too long
-command W w
-command WQ wq
-command Wq wq
-command Q q
+" for when you mess up and hold shift too long (using ! to prevent errors while 
+" sourcing vimrc after it was updated)
+command! W w
+command! WQ wq
+command! Wq wq
+command! Q q
 
 "============= Buffers =============
 
