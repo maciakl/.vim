@@ -78,6 +78,9 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 " now source it
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+" surround the current word with quotes
+nnoremap <leader>' ea"<esc>bi"<esc>e
+
 " use regular regex syntax rather than vim regex
 nnoremap / /\v
 vnoremap / /\v
