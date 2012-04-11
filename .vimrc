@@ -3,13 +3,15 @@
 set nocompatible
 runtime! debian.vim
 
+" use Inconsolata unless overriden
 set gfn=Inconsolata\ Medium\ 12
 
 " windows stuff (ignore on Linux)
 if has('win32')
-	source $VIMRUNTIME/vimrc_example.vim
-	source $VIMRUNTIME/mswin.vim
-	set gfn=Consolas:h10:cANSI " windows only font
+	"source $VIMRUNTIME/mswin.vim 				" use win bindings and stuff
+	set gfn=Consolas:h10:cANSI 					" when on Windows use Consolas
+elseif has('mac')
+	set gfn=Monaco\ 10 							" use the Monaco font when on Mac
 endif
 
 "============= Key Mappings ============= 
@@ -61,8 +63,10 @@ noremap <leader>Y "+Y
 noremap <leader>p "+p
 
 " automatically jump to last misspelled word and attempt replacing it
-noremap <leader>a [sz=
-noremap <leader>s [sz=1<cr><cr>
+noremap <leader>s [sz=
+noremap <leader>a [sz=1<cr><cr>
+
+" use Ctrl+L in insert mode to correct last misspelled word
 inoremap <C-l> <esc>[sz=
 
 " Ctrl+Backspace deletes last word
@@ -91,7 +95,7 @@ set spelllang=en
 
 "============= Line Numbers =============
 
-set rnu 	" relative line numbers
+set rnu 		" relative line numbers
 set cul		" highlight cursor line 
 set paste	" pasting with auto-indent
 
@@ -104,7 +108,7 @@ function! g:ToggleNuMode()
 	endif
 endfunc
 
-
+" map the above function to F5
 nnoremap <f5> :call g:ToggleNuMode()<cr>
 
 "============= Scrolling =============
@@ -118,19 +122,25 @@ set colorcolumn=80
 
 set scrolloff=3	" 3 line offset when scrolling
 
-"============= Formatting & Behavior =============
+"============= Formatting, Indentation & Behavior =============
 
 " enable soft word wrap
 set formatoptions=l
 set lbr
 
-behave mswin 	" will accept ctrl+c, ctrl+c, ctrl+v if you slip up
+" use hard tabs for indentation
+set shiftwidth=4
+set tabstop=4
+set noexpandtab 	" don't expand tabs to spaces (cause fuck that)
+
+" uncomment if you're a n00b
+"behave mswin 	" will accept ctrl+c, ctrl+c, ctrl+v if you slip up
 
 au FocusLost * silent! :wa	" save when switching focus 
 
 "============= Search & Matching =============
 
-set showcmd		" Show (partial) command in status line.
+set showcmd			" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
 set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
@@ -138,8 +148,8 @@ set smartcase		" Do smart case matching
 set incsearch		" incremental search
 set hlsearch		" highlights searches
 
-set noerrorbells
-set novisualbell
+set noerrorbells 	" suppress audible bell
+set novisualbell 	" suppress bell blink
 
 "============= History =============
 
@@ -156,7 +166,7 @@ endif
 "============= Misc =============
 
 set autowrite		" Automatically save before commands like :next and :make
-set mouse=a		" Enable mouse usage (all modes) in terminals
+set mouse=a			" Enable mouse usage (all modes) in terminals
 
 " sudo save file with w!
 cmap w!! w !sudo tee % >/dev/null
@@ -181,7 +191,7 @@ set laststatus=2
 
 "============== Folding ==============
 
-set nofoldenable
+set nofoldenable 			" screw folding
 "set foldmethod=indent
 "set foldnestmax=3
 "set foldenable
