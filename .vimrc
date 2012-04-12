@@ -81,6 +81,9 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " surround the current word with quotes
 nnoremap <leader>' ea"<esc>bi"<esc>e
 
+" run current buffer through markdown converter
+nnoremap <leader>md :%! Markdown.pl --html4tags
+
 " use regular regex syntax rather than vim regex
 nnoremap / /\v
 vnoremap / /\v
