@@ -8,7 +8,6 @@ set gfn=Inconsolata\ Medium\ 12
 
 " windows stuff (ignore on Linux)
 if has('win32')
-	"source $VIMRUNTIME/mswin.vim 				" use win bindings and stuff
 	set gfn=Consolas:h10:cANSI 					" when on Windows use Consolas
 elseif has('mac')
 	set gfn=Monaco\ 10 							" use the Monaco font when on Mac
@@ -63,8 +62,8 @@ noremap <leader>Y "+Y
 noremap <leader>p "+p
 
 " automatically jump to last misspelled word and attempt replacing it
-noremap <leader>s [sz=
-noremap <leader>a [sz=1<cr><cr>
+noremap <leader>ss [sz=
+noremap <leader>aa [sz=1<cr><cr>
 
 " use Ctrl+L in insert mode to correct last misspelled word
 inoremap <C-l> <esc>[sz=
@@ -82,7 +81,13 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>' ea"<esc>bi"<esc>e
 
 " run current buffer through markdown converter
-nnoremap <leader>md :%! Markdown.pl --html4tags
+" you should have the Markdown.pl in your .vim directory for convenience
+if filereadable($HOME."/.vim/Markdown.pl")
+	" make this binding active only in html and markdown files
+	autocmd FileType html,htm,mkd,markdown nnoremap <leader>md :%! $HOME/.vim/Markdown.pl --html4tags<cr>
+else
+	echom "Warning: Markdown.pl not found - <leader>md not set for HTML and MKD files."
+endif
 
 " use regular regex syntax rather than vim regex
 nnoremap / /\v
@@ -108,7 +113,8 @@ set spelllang=en
 
 "============= Line Numbers =============
 
-" Line numbers (set relative in 7.3 because it's useful); fall back on absolute
+" Line numbers (set relative in 7.3 because it's useful); 
+" Fall back to absolute if 7.2 and lower
 if v:version >= 730
 	set rnu 	" if version 7.3 set relative line numbers
 else
@@ -151,9 +157,6 @@ set lbr
 set shiftwidth=4
 set tabstop=4
 set noexpandtab 	" don't expand tabs to spaces (cause fuck that)
-
-" uncomment if you're a n00b
-"behave mswin 	" will accept ctrl+c, ctrl+c, ctrl+v if you slip up
 
 au FocusLost * silent! :wa	" save when switching focus 
 
@@ -205,12 +208,13 @@ set backspace=indent,eol,start 	" backspace over everything in insert mode
 
 " ============== Status Line ==============
 
-set ls=2 " Always show status line
+set ls=2 			" Always show status line
 set laststatus=2
 
 "============== Folding ==============
 
-set nofoldenable 			" screw folding
+set nofoldenable 	" screw folding
+
 "set foldmethod=indent
 "set foldnestmax=3
 "set foldenable
@@ -221,19 +225,17 @@ set wildmenu
 set wildmode=list:longest
 set wildignore=*.swp,*.bak,*.pyc,*.class,*.o,*.obj,*~
 
+" longer more descriptive auto-complete prompts
+set completeopt=longest,menuone
+set ofu=syntaxcomplete#Complete
+
 "============== Swap Files ==============
 
-set noswapfile
-set nobackup
-set nowb
+set noswapfile 		" suppress creation of swap files
+set nobackup 		" suppress creation of backup files
+set nowb 			" suppress creation of ~ files
 
 "============== Misc ==============
-
-" Source a global configuration file if available
-"if filereadable("/etc/vim/vimrc.local")
-"	source /etc/vim/vimrc.local
-"endif
-
 
 " force txt files to be highlighted as html
 au BufRead,BufNewFile *.txt setfiletype html
@@ -303,4 +305,5 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 " phpDocumentor shortcut
 nnoremap <leader>d :call PhpDoc()<cr>
 
+" key binding for the Gundo (undo preview) plugin
 nnoremap <F7> :GundoToggle<CR>
