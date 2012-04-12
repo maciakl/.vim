@@ -1,7 +1,7 @@
 "============= Runtime Stuff =============
 
 set nocompatible
-runtime! debian.vim
+"runtime! debian.vim
 
 " use Inconsolata unless overriden
 set gfn=Inconsolata\ Medium\ 12
@@ -108,7 +108,13 @@ set spelllang=en
 
 "============= Line Numbers =============
 
-set rnu 		" relative line numbers
+" Line numbers (set relative in 7.3 because it's useful); fall back on absolute
+if v:version >= 730
+	set rnu 	" if version 7.3 set relative line numbers
+else
+	set nu		" otherwise set absolute, because there is no rnu
+endif
+
 set cul		" highlight cursor line 
 set paste	" pasting with auto-indent
 
@@ -223,15 +229,10 @@ set nowb
 
 "============== Misc ==============
 
-" Load indentation rules according to the detected file type. 
-if has("autocmd")
-	filetype indent on
-endif
-
 " Source a global configuration file if available
-if filereadable("/etc/vim/vimrc.local")
-	source /etc/vim/vimrc.local
-endif
+"if filereadable("/etc/vim/vimrc.local")
+"	source /etc/vim/vimrc.local
+"endif
 
 
 " force txt files to be highlighted as html

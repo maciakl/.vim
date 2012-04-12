@@ -23,7 +23,7 @@ On Windows:
     del _vimrc
     git clone git@github.com:maciakl/.vim.git
     mklink /d vimfiles .vim
-    mklink _vimrc .vim\.vimrc
+    mklink /h _vimrc .vim\.vimrc
     cd .vim
     git submodule init
     git submodule update
