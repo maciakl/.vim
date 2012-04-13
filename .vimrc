@@ -84,7 +84,9 @@ nnoremap <leader>' ea"<esc>bi"<esc>e
 " you should have the Markdown.pl in your .vim directory for convenience
 if filereadable($HOME."/.vim/Markdown.pl")
 	" make this binding active only in html and markdown files
-	autocmd FileType html,htm,mkd,markdown nnoremap <leader>md :%! $HOME/.vim/Markdown.pl --html4tags<cr>
+	" note that you only need the exe because $HOME does not properly expand
+	" on windows.
+	autocmd FileType html,htm,mkd,markdown nnoremap <leader>md :exe "%! ".$HOME."/.vim/Markdown.pl --html4tags"<cr>
 else
 	echom "Warning: Markdown.pl not found - <leader>md not set for HTML and MKD files."
 endif
