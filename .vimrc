@@ -138,7 +138,7 @@ endfunc
 " map the above function to F5
 nnoremap <f5> :call g:ToggleNuMode()<cr>
 
-"============= Scrolling =============
+"============= Scrolling & Position Tweaks =============
 
 " show line and column markers
 set cursorline
@@ -148,6 +148,9 @@ set cursorcolumn
 set colorcolumn=80
 
 set scrolloff=3	" 3 line offset when scrolling
+
+" turn off the *FUCKING* cursor blink
+set guicursor=a:blinkon0
 
 "============= Formatting, Indentation & Behavior =============
 
