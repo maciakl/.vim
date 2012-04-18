@@ -83,20 +83,27 @@ nnoremap <leader>' ea"<esc>bi"<esc>e
 " run current buffer through markdown converter
 " you should have the Markdown.pl in your .vim directory for convenience
 if filereadable($HOME."/.vim/Markdown.pl")
-	" make this binding active only in html and markdown files
-	" note that you only need the exe because $HOME does not properly expand
-	" on windows.
-	
+
+	" run Markdown.pl on current file and dump the output to a .html file
+	" then attempt to open that file in a web browser
 	function! g:Markdown()
 		exe "!".$HOME."/.vim/Markdown.pl --html4tags % > %.html"
-		exe "! %.html"
+
+		" on Windows use default web browser. Elsewhere try chrome in
+		" incognito mode (no plugins). Feel free to change that to your
+		" favorite browser.
+		if has('win32')
+			exe "! %.html"
+		else
+			exe "! google-chrome --incognito %.html"
+		endif
+
 	endfunc
 
+	" bind this function to :M
 	command! M call g:Markdown()
-	"autocmd FileType html,htm,mkd,markdown nnoremap <leader>md call g:Markdown() 
+	
 	" autocmd FileType html,htm,mkd,markdown nnoremap <leader>md :exe "%! ".$HOME."/.vim/Markdown.pl --html4tags"<cr>
-else
-	echom "Warning: Markdown.pl not found - <leader>md not set for HTML and MKD files."
 endif
 
 
