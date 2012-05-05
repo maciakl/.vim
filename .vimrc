@@ -13,6 +13,18 @@ elseif has('mac')
 	set gfn=Monaco\ 10 							" use the Monaco font when on Mac
 endif
 
+"============= GUI Options ============= 
+
+if has('gui_running')
+	set guioptions-=T 							" disable toolbar
+
+	" make the default window bigger on Windows	
+	if has('win32')
+		set lines=45 columns=160
+	endif
+
+endif
+
 "============= Key Mappings ============= 
 
 " press ; to issue commands in normal mode (no more shift holding)
