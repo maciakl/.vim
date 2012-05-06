@@ -33,10 +33,14 @@ nnoremap ; :
 " move by screen lines, not by real lines - great for creative writing
 nnoremap j gj
 nnoremap k gk
+nnoremap <up> gk
+nnoremap <down> gj
 
 " also in visual mode
 vnoremap j gj
 vnoremap k gk
+vnoremap <up> gk
+vnoremap <down> gj
 
 " run ctags on current directory recursively
 nnoremap <f6> :!ctags -R<cr>
