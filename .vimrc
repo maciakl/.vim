@@ -16,7 +16,8 @@ endif
 "============= GUI Options ============= 
 
 if has('gui_running')
-	set guioptions-=T 							" disable toolbar
+	set guioptions-=T 			" disable tool bar
+	set guioptions-=m 			" disable menu bar
 
 	" make the default window bigger on Windows	
 	if has('win32')
