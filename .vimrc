@@ -20,9 +20,11 @@ endif
 
 " Enable UTF-8 support so that I can type polish characters
 if has("multi_byte")
+	" set encoding on terminal if not set
 	if &termencoding == ""
 		let &termencoding = &encoding
 	endif
+	" force utf-8
 	set encoding=utf-8
 	setglobal fileencoding=utf-8 bomb
 	set fileencodings=ucs-bom,utf-8,latin1
@@ -58,6 +60,15 @@ vnoremap k gk
 vnoremap <up> gk
 vnoremap <down> gj
 
+" make up and down arrows work in insert mode
+" c-o jumps to normal mode for one command
+inoremap <up> <C-O>gk
+inoremap <down> <C-O>gj
+
+" insert current date on F10 - useful for dated logs or journals
+:nnoremap <F10> "=strftime("%a %b %d, %Y")<CR>P
+:inoremap <F10> <C-R>=strftime("%a %b %d, %Y")<CR>
+
 " run ctags on current directory recursively
 nnoremap <f6> :!ctags -R<cr>
 
@@ -92,6 +103,7 @@ set showmode
 noremap <leader>y "+y
 noremap <leader>Y "+Y
 noremap <leader>p "+p
+noremap <leader>P "+P
 
 " automatically jump to last misspelled word and attempt replacing it
 noremap <leader>ss [sz=
