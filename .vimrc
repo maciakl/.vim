@@ -4,7 +4,7 @@
 set nocompatible
 
 " use blowfish encryption (stronger than standard)
-if v:version >= 730
+if v:version >= 703
 	set cryptmethod=blowfish
 endif
 
@@ -36,11 +36,8 @@ if has('gui_running')
 	set guioptions-=T 			" disable tool bar
 	set guioptions-=m 			" disable menu bar
 
-	" make the default window bigger on Windows	
-	if has('win32')
-		set lines=45 columns=160
-	endif
-
+	" make the default window bigger 	
+	set lines=45 columns=160
 endif
 
 "============= Key Mappings ============= 
@@ -182,7 +179,7 @@ set spelllang=en
 
 " Line numbers (set relative in 7.3 because it's useful); 
 " Fall back to absolute if 7.2 and lower
-if v:version >= 730
+if v:version >= 703
 	set rnu 	" if version 7.3 set relative line numbers
 else
 	set nu		" otherwise set absolute, because there is no rnu
@@ -250,7 +247,7 @@ set history=1000
 set undolevels=1000
 
 
-if v:version >= 730
+if v:version >= 703
 	set undofile        " keep a persistent backup file
 endif
 
