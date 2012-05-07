@@ -5,7 +5,7 @@ set nocompatible
 
 " use blowfish encryption (stronger than standard)
 if v:version >= 730
-	set cm=blowfish
+	set cryptmethod=blowfish
 endif
 
 " use Inconsolata unless overriden
