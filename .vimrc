@@ -15,12 +15,12 @@ endif
 
 " Enable UTF-8 support so that I can type polish characters
 if has("multi_byte")
-  if &termencoding == ""
-    let &termencoding = &encoding
-  endif
-  set encoding=utf-8
-  setglobal fileencoding=utf-8 bomb
-  set fileencodings=ucs-bom,utf-8,latin1
+	if &termencoding == ""
+		let &termencoding = &encoding
+	endif
+	set encoding=utf-8
+	setglobal fileencoding=utf-8 bomb
+	set fileencodings=ucs-bom,utf-8,latin1
 endif
 
 "============= GUI Options ============= 
@@ -147,7 +147,10 @@ command! WQ wq
 command! Wq wq
 command! Q q
 
-command! Dos set ff=dos
+" changing file types:
+command! DOS set ff=dos 	" force windows style line endings
+command! UNIX set ff=unix 	" force unix style line endings
+command! MAC set ff=mac 	" force mac style line endings
 
 "============= Buffers =============
 
