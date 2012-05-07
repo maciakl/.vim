@@ -1,7 +1,12 @@
 "============= Runtime Stuff =============
 
+" probably not necessary, but...
 set nocompatible
-"runtime! debian.vim
+
+" use blowfish encryption (stronger than standard)
+if v:version >= 730
+	set cm=blowfish
+endif
 
 " use Inconsolata unless overriden
 set gfn=Inconsolata\ Medium\ 12
