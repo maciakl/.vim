@@ -246,9 +246,9 @@ set novisualbell 	" suppress bell blink
 set history=1000
 set undolevels=1000
 
-
 if v:version >= 703
 	set undofile        " keep a persistent backup file
+	set undodir=$TEMP
 endif
 
 
