@@ -13,9 +13,9 @@ set gfn=Inconsolata\ Medium\ 12
 
 " windows stuff (ignore on Linux)
 if has('win32')
-	set gfn=Consolas:h10:cANSI 					" when on Windows use Consolas
+	set gfn=Consolas:h12:cANSI 					" when on Windows use Consolas
 elseif has('mac')
-	set gfn=Monaco\ 10 							" use the Monaco font when on Mac
+	set gfn=Monaco\ 12 							" use the Monaco font when on Mac
 endif
 
 " Enable UTF-8 support so that I can type polish characters
