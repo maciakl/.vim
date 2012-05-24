@@ -223,7 +223,10 @@ set lbr
 " use hard tabs for indentation
 set shiftwidth=4
 set tabstop=4
-set noexpandtab 	" don't expand tabs to spaces (cause fuck that)
+" set noexpandtab 	" don't expand tabs to spaces (cause fuck that)
+set expandtab 		" actually, expand tabs into spaces
+set softtabstop=4 	" makes backspace treat 4 spaces like a tab
+
 
 au FocusLost * silent! :wa	" save when switching focus 
 
