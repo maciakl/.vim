@@ -339,14 +339,10 @@ if has('gui_running')
 	" use the light (yellowish background) scheme in GUI
 	set background=light
 else
-	" change to dark color scheme on terminal
-	set background=dark
-
-	" if running on windows, degrade to 256 colors because the windows
-	" terminal sucks very, very much and vim in GitBash looks awful
-	if has('win32')
-		let g:solarized_termcolors
-	endif
+	" specific settings for terminal 
+	set t_Co=256                        " force vim to use 256 colors
+	let g:solarized_termcolors=256      " use solarized 256 fallback
+	set background=light                " change this if you want dark scheme
 
 endif
 
