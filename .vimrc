@@ -23,6 +23,9 @@ if has('win32')
     set shellredir=>%s\ 2>&1
     set shellslash
 
+    let g:ruby_path = ':C:\Ruby193\bin'
+
+
 elseif has('mac')
 	set gfn=Monaco\ 12 							" use the Monaco font when on Mac
 endif
