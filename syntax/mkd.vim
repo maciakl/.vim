@@ -41,6 +41,15 @@ syn region htmlItalic   start=/\\\@<!\(^\|\A\)\@=\*\@<!\*\*\@!/       end=/\\\@<
 syn region htmlBold     start=/\\\@<!\(^\|\A\)\@=_\@<!___\@!/         end=/\\\@<!_\@<!___\@!\($\|\A\)\@=/       contains=htmlItalic,@Spell
 syn region htmlItalic   start=/\\\@<!\(^\|\A\)\@=_\@<!__\@!/          end=/\\\@<!_\@<!__\@!\($\|\A\)\@=/        contains=htmlBold,@Spell
 
+" Multimarkdown stuff
+syn match mkdTableCaption     "|\n\zs\[[^]]*\]$"
+syn match mkdTableCaption     "^\[[^]]*\]\ze\n|"
+
+syn region mkdMetadata start=/\%^.*:.*$/ end=/^$/ contains=mkdMetadataKey,mkdMetadataText fold
+syn match mkdMetadataKey /^[^:]*\ze:/ contained
+syn match mkdMetadataText /:.*/ contained
+
+
 " [link](URL) | [link][id] | [link][]
 syn region mkdLink matchgroup=mkdDelimiter      start="\!\?\[" end="\]\ze\s*[[(]" contains=@Spell nextgroup=mkdURL,mkdID skipwhite
 syn region mkdID matchgroup=mkdDelimiter        start="\["    end="\]" contained
@@ -48,6 +57,12 @@ syn region mkdURL matchgroup=mkdDelimiter       start="("     end=")"  contained
 " mkd  inline links:           protocol   optional  user:pass@       sub/domain                 .com, .co.uk, etc      optional port   path/querystring/hash fragment
 "                            ------------ _____________________ --------------------------- ________________________ ----------------- __
 syntax match   mkdInlineURL /https\?:\/\/\(\w\+\(:\w\+\)\?@\)\?\([A-Za-z][-_0-9A-Za-z]*\.\)\{1,}\(\w\{2,}\.\?\)\{1,}\(:[0-9]\{1,5}\)\?\S*/
+
+"define Multimarkdown Footnotes
+syn match  mmdFootnoteMarker  "\[^\S\+\]"
+syn match  mmdFootnoteIdentifier  "\[^.\+\]:" contained
+syn region mmdFootnoteText  start="^\s\{0,3\}\[^.\+\]:[ \t]" end="^$" contains=mmdFootnoteIdentifier
+
 
 " Link definitions: [id]: URL (Optional Title)
 " TODO handle automatic links without colliding with htmlTag (<URL>)
@@ -120,6 +135,17 @@ HtmlHiLink mkdID            Identifier
 HtmlHiLink mkdLinkDef       mkdID
 HtmlHiLink mkdLinkDefTarget mkdURL
 HtmlHiLink mkdLinkTitle     htmlString
+
+" Multimarkdown hilights
+HtmlHiLink mmdFootnoteMarker    Constant
+HtmlHiLink mmdFootnoteIdentifier    Constant
+HtmlHiLink mmdFootnoteText     String
+
+HtmlHiLink mkdMetadataKey   Function
+HtmlHiLink mkdTableCaption  String
+HtmlHiLink mkdSourceDef     Statement
+HtmlHiLink mkdSource        String
+HtmlHiLink mkdLinkAttrib    Function
 
 HtmlHiLink mkdDelimiter     Delimiter
 
