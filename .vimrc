@@ -120,6 +120,7 @@ noremap <leader>aa [sz=1<cr><cr>
 
 " use Ctrl+L in insert mode to correct last misspelled word
 inoremap <C-l> <esc>[sz=
+noremap <C-i> gi
 
 " Ctrl+Backspace deletes last word
 inoremap <C-BS> <esc>bcw
