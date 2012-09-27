@@ -125,6 +125,9 @@ noremap <C-i> gi
 " Ctrl+Backspace deletes last word
 inoremap <C-BS> <esc>bcw
 
+" Ctrl+De; deletes next word
+inoremap <C-Del> <esc>wcw
+
 " open my vimrc in a split
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
