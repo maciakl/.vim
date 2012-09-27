@@ -129,13 +129,15 @@ inoremap <C-BS> <esc>bcw
 inoremap <C-Del> <esc>wcw
 
 " open my vimrc in a split
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+command! VIMRC vsplit $MYVIMRC
 
 " now source it
-nnoremap <leader>sv :source $MYVIMRC<cr>
+command! SOURCE source $MYVIMRC
 
 " surround the current word with quotes
 nnoremap <leader>' ea"<esc>bi"<esc>e
+nnoremap <leader>< ea><esc>bi<<esc>e
+nnoremap <leader>( ea)<esc>bi(<esc>e
 
 " run current buffer through markdown converter
 " you should have the Markdown.pl in your .vim directory for convenience
