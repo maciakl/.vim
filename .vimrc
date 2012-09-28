@@ -135,9 +135,11 @@ command! VIMRC vsplit $MYVIMRC
 command! SOURCE source $MYVIMRC
 
 " surround the current word with quotes
-nnoremap <leader>' ea"<esc>bi"<esc>e
-nnoremap <leader>< ea><esc>bi<<esc>e
-nnoremap <leader>( ea)<esc>bi(<esc>e
+nnoremap <leader>' ciw"<C-r>""<esc>
+nnoremap <leader>, ciw<<C-r>"><esc>
+nnoremap <leader>( ciw(<C-r>")<esc>
+
+nnoremap <leader>' ciw"<C-r>""<esc>e
 
 " run current buffer through markdown converter
 " you should have the Markdown.pl in your .vim directory for convenience
