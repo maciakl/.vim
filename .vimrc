@@ -3,6 +3,9 @@
 " probably not necessary, but...
 set nocompatible
 
+" change the leader key to ,
+let mapleader=","
+
 " use blowfish encryption (stronger than standard)
 if v:version >= 703
 	set cryptmethod=blowfish
@@ -87,9 +90,6 @@ nmap <silent> <leader><space> :nohlsearch<CR>
 " break a line at cursor 
 nnoremap <silent> <leader><CR> i<CR><ESC>
 
-" make a markdown heading
-nnoremap <silent> <leader>h YpVr=
-
 " insert a blank line with <leader>o and <leader>O
 nnoremap <silent> <leader>o o<ESC>
 nnoremap <silent> <leader>O O<ESC>
@@ -134,12 +134,31 @@ command! VIMRC vsplit $MYVIMRC
 " now source it
 command! SOURCE source $MYVIMRC
 
+" repeated C-r pastes in the contents of the unnamed register
+inoremap <C-r><C-r> <C-r>"
+
 " surround the current word with quotes
 nnoremap <leader>' ciw"<C-r>""<esc>
 nnoremap <leader>, ciw<<C-r>"><esc>
 nnoremap <leader>( ciw(<C-r>")<esc>
 
-nnoremap <leader>' ciw"<C-r>""<esc>e
+" surround word/sentence with emp, strong
+noremap <leader>e ciw<emp><C-r>"</emp><esc>
+noremap <leader>E cis<emp><C-r>"</emp><esc>
+
+noremap <leader>s ciw<strong><C-r>"</strong><esc>
+noremap <leader>S cis<strong><C-r>"</strong><esc>
+
+noremap <leader>blk I<blockquote><esc>A</blockquote><esc>
+
+" Markdown bindings
+nnoremap <silent> <leader>h1 YpVr=
+nnoremap <silent> <leader>h2 YpVr-
+
+noremap <leader>b ciw**<C-r>"**<esc>
+noremap <leader>B cis**<C-r>"**<esc>
+noremap <leader>i ciw*<C-r>"*<esc>
+noremap <leader>I cis*<C-r>"*<esc>
 
 " run current buffer through markdown converter
 " you should have the Markdown.pl in your .vim directory for convenience
