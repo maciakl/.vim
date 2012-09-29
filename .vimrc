@@ -16,11 +16,9 @@ set gfn=Inconsolata\ Medium\ 12
 
 " windows stuff (ignore on Linux)
 if has('win32')
-	set gfn=Consolas:h12:cANSI 					" when on Windows use Consolas
+	set gfn=Consolas:h13:cANSI 					" when on Windows use Consolas
     
     " make cygwin the default shell on windows
-    "set shell=C:/cygwin/bin/bash
-    "set shellcmdflag=--login\ -c
     set shellxquote=
     set shellpipe=2>&1\|tee
     set shellredir=>%s\ 2>&1
