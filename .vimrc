@@ -381,6 +381,10 @@ else
 	let g:solarized_termcolors=256      " use solarized 256 fallback
 	set background=light                " change this if you want dark scheme
 
+    " Tell vim to change the shape of the cursor based on mode
+	let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
 endif
 
 " enable solarized color scheme
