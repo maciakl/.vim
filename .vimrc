@@ -92,9 +92,11 @@ nnoremap <silent> <leader><CR> i<CR><ESC>
 nnoremap <silent> <leader>o o<ESC>
 nnoremap <silent> <leader>O O<ESC>
 
-
 " use jj to quickly escape to normal mode while typing 
 inoremap jj <ESC>
+
+" shift Tab to cycle through buffers
+nnoremap <S-Tab> :bnext<CR>
 
 " toggle paste mode (to paste properly indented text)
 nnoremap <F3> :set invpaste paste?<CR>
