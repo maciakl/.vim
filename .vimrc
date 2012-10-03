@@ -245,8 +245,11 @@ nnoremap <f5> :call g:ToggleNuMode()<cr>
 set cursorline
 set cursorcolumn
 
-" highlight column 80
-set colorcolumn=80
+if v:version >= 703
+    " for some reason this does not work in 7.2
+    " highlight column 80
+    set colorcolumn=80
+endif
 
 set scrolloff=3	" 3 line offset when scrolling
 
