@@ -205,6 +205,16 @@ command! DOS set ff=dos 	" force windows style line endings
 command! UNIX set ff=unix 	" force unix style line endings
 command! MAC set ff=mac 	" force mac style line endings
 
+" This will display the path of the current file in the status line
+" It will also copy the path to the unnamed register so it can be pasted
+" with p or C-r C-r
+command! FILEPATH call g:getFilePath()
+
+function! g:getFilePath()
+    let @" = expand("%:p")
+    echom "Current file:" expand("%:p")
+endfunc
+
 "============= Buffers =============
 
 set hidden 	" buffers can exist in background without being in a window
