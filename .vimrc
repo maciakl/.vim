@@ -28,7 +28,7 @@ if has('win32')
 
 
 elseif has('mac')
-	set gfn=Monaco\ 12 							" use the Monaco font when on Mac
+	set gfn=Monaco:h13	    					" use the Monaco font when on Mac
 endif
 
 " Enable UTF-8 support so that I can type polish characters
