@@ -11,8 +11,6 @@ if v:version >= 703
 	set cryptmethod=blowfish
 endif
 
-" use Inconsolata unless overriden
-set gfn=Inconsolata\ Medium\ 12
 
 " windows stuff (ignore on Linux)
 if has('win32')
@@ -29,6 +27,9 @@ if has('win32')
 
 elseif has('mac')
 	set gfn=Monaco:h13	    					" use the Monaco font when on Mac
+else
+    " use Inconsolata everywhere else 
+    set gfn=Inconsolata\ Medium\ 12
 endif
 
 " Enable UTF-8 support so that I can type polish characters
@@ -421,7 +422,6 @@ if has('win32')
 	let g:snippets_dir="c:/Users/luke/.vim/bundle/snipmate/snippets/,c:/Users/luke/.vim/bundle/snipmate-custom-snippets/snippets"
 endif
 
-
 " MiniBufExpl Plugin Settings
 let g:miniBufExplMapCTabSwitchBufs = 1 
 
@@ -430,3 +430,5 @@ nnoremap <leader>d :call PhpDoc()<cr>
 
 " key binding for the Gundo (undo preview) plugin
 nnoremap <F7> :GundoToggle<CR>
+
+
