@@ -161,33 +161,6 @@ noremap <leader>B cis**<C-r>"**<esc>
 noremap <leader>i ciw*<C-r>"*<esc>
 noremap <leader>I cis*<C-r>"*<esc>
 
-" run current buffer through markdown converter
-" you should have the Markdown.pl in your .vim directory for convenience
-if filereadable($HOME."/.vim/Markdown.pl")
-
-	" run Markdown.pl on current file and dump the output to a .html file
-	" then attempt to open that file in a web browser
-	function! g:Markdown()
-		exe "!".$HOME."/.vim/Markdown.pl --html4tags % > %.html"
-
-		" on Windows use default web browser. Elsewhere try chrome in
-		" incognito mode (no plugins). Feel free to change that to your
-		" favorite browser.
-		if has('win32')
-			exe "! %.html"
-		else
-			exe "! google-chrome --incognito %.html"
-		endif
-
-	endfunc
-
-	" bind this function to :M
-	command! M call g:Markdown()
-	
-	" autocmd FileType html,htm,mkd,markdown nnoremap <leader>md :exe "%! ".$HOME."/.vim/Markdown.pl --html4tags"<cr>
-endif
-
-
 " use regular regex syntax rather than vim regex
 nnoremap / /\v
 vnoremap / /\v
