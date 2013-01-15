@@ -273,6 +273,9 @@ set guicursor=a:blinkon0
 set formatoptions=l
 set lbr
 
+" Keep inserting comment leader character on subsequent lines
+set formatoptions+=or
+
 " use hard tabs for indentation
 set tabstop=4
 set softtabstop=4 	" makes backspace treat 4 spaces like a tab
@@ -425,11 +428,8 @@ endif
 " MiniBufExpl Plugin Settings
 let g:miniBufExplMapCTabSwitchBufs = 1 
 
-" phpDocumentor shortcut
-nnoremap <leader>d :call PhpDoc()<cr>
-
 " key binding for the Gundo (undo preview) plugin
 nnoremap <F7> :GundoToggle<CR>
 
 " bind the PHPDoc command to C-P only for php files
-autocmd FileType php nnoremap <C-P> :call PhpDocSingle()<CR> 
+nnoremap <C-P> :call PhpDoc()<CR> 
