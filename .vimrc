@@ -105,9 +105,9 @@ set pastetoggle=<F3>
 set showmode
 
 " run current PHP file through php interpreter
-:autocmd FileType php noremap <leader>p :w!<CR>:!php %<CR>
+":autocmd FileType php noremap <leader>p :w!<CR>:!php %<CR>
 " run current PHP file through php linter (syntax check) check
-:autocmd FileType php noremap <leader>l :!php -l %<CR>
+":autocmd FileType php noremap <leader>l :!php -l %<CR>
 
 " use \y and \p to copy and paste from system clipboard
 noremap <leader>y "+y
