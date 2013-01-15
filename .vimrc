@@ -431,4 +431,5 @@ nnoremap <leader>d :call PhpDoc()<cr>
 " key binding for the Gundo (undo preview) plugin
 nnoremap <F7> :GundoToggle<CR>
 
-
+" bind the PHPDoc command to C-P only for php files
+autocmd FileType php nnoremap <C-P> :call PhpDocSingle()<CR> 

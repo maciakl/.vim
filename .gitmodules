@@ -40,3 +40,6 @@
 [submodule "bundle/gundo"]
 	path = bundle/gundo
 	url = https://github.com/sjl/gundo.vim.git
+[submodule "phpdoc.vim"]
+	path = phpdoc.vim
+	url = https://github.com/vexxor/phpdoc.vim.git
