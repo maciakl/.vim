@@ -341,7 +341,7 @@ set nowb 			" suppress creation of ~ files
 au BufRead,BufNewFile *.txt setfiletype html
 
 " force php files to be treated as php/html - necessary for snipmate to work
-au BufRead,BufNewFile *.php set filetype=php.html
+"au BufRead,BufNewFile *.php set filetype=php.html
 
 " IMPORTANT: grep will sometimes skip displaying the file name if you
 " search in a singe file. This will confuse Latex-Suite. Set your grep
@@ -406,3 +406,6 @@ nnoremap <F7> :GundoToggle<CR>
 
 " bind the PHPDoc command to C-P only for php files
 nnoremap <C-P> :call PhpDoc()<CR> 
+
+" fixing comment style for PHP (this got changed somewhere)
+au Filetype php set comments=sr:/**,m:*\ ,ex:*/,://
