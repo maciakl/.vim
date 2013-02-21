@@ -4,6 +4,7 @@
 set nocompatible
 
 " change the leader key to ,
+" while the default \ is nice, comma is faster
 let mapleader=","
 
 " use blowfish encryption (stronger than standard)
@@ -14,19 +15,23 @@ endif
 
 " windows stuff (ignore on Linux)
 if has('win32')
-	set gfn=Consolas:h13:cANSI 					" when on Windows use Consolas
+	set gfn=Consolas:h13:cANSI 				" when on Windows use Consolas
     
-    " make cygwin the default shell on windows
+    " make Cygwin the default shell on windows
+    " this ensures that escaping to shell works as expected
     set shellxquote=
     set shellpipe=2>&1\|tee
     set shellredir=>%s\ 2>&1
     set shellslash
 
+    " this may need to be changed on your system
     let g:ruby_path = ':C:\Ruby193\bin'
 
-
+" options for Mac only
 elseif has('mac')
-	set gfn=Monaco:h13	    					" use the Monaco font when on Mac
+	set gfn=Monaco:h13	    				" use the Monaco font when on Mac
+
+" options for every other system
 else
     " use Inconsolata everywhere else 
     set gfn=Inconsolata\ Medium\ 12
@@ -38,6 +43,7 @@ if has("multi_byte")
 	if &termencoding == ""
 		let &termencoding = &encoding
 	endif
+
 	" force utf-8
 	set encoding=utf-8
 	setglobal fileencoding=utf-8 bomb
@@ -46,6 +52,7 @@ endif
 
 "============= GUI Options ============= 
 
+" remove unnecessary toolbars
 if has('gui_running')
 	set guioptions-=T 			" disable tool bar
 	set guioptions-=m 			" disable menu bar
@@ -83,7 +90,7 @@ inoremap <down> <C-O>gj
 " run ctags on current directory recursively
 nnoremap <f6> :!ctags -R<cr>
 
-" pressing \<space> clears the search highlights
+" pressing <leader><space> clears the search highlights
 nmap <silent> <leader><space> :nohlsearch<CR> 
 
 " break a line at cursor 
@@ -104,11 +111,6 @@ nnoremap <F3> :set invpaste paste?<CR>
 set pastetoggle=<F3>
 set showmode
 
-" run current PHP file through php interpreter
-":autocmd FileType php noremap <leader>p :w!<CR>:!php %<CR>
-" run current PHP file through php linter (syntax check) check
-":autocmd FileType php noremap <leader>l :!php -l %<CR>
-
 " use \y and \p to copy and paste from system clipboard
 noremap <leader>y "+y
 noremap <leader>Y "+Y
@@ -116,8 +118,7 @@ noremap <leader>p "+p
 noremap <leader>P "+P
 
 " automatically jump to last misspelled word and attempt replacing it
-noremap <leader>ss [sz=
-noremap <leader>aa [sz=1<cr><cr>
+noremap <C-l> [sz=
 
 " use Ctrl+L in insert mode to correct last misspelled word
 inoremap <C-l> <esc>[sz=
@@ -129,11 +130,6 @@ inoremap <C-BS> <esc>bcw
 " Ctrl+De; deletes next word
 inoremap <C-Del> <esc>wcw
 
-" open my vimrc in a split
-command! VIMRC vsplit $MYVIMRC
-
-" now source it
-command! SOURCE source $MYVIMRC
 
 " repeated C-r pastes in the contents of the unnamed register
 inoremap <C-r><C-r> <C-r>"
@@ -166,6 +162,12 @@ nnoremap / /\v
 vnoremap / /\v
 
 "============= Command Aliases =============
+
+" open my vimrc in a split
+command! VIMRC :e $MYVIMRC
+
+" now source it
+command! SOURCE source $MYVIMRC
 
 " for when you mess up and hold shift too long (using ! to prevent errors while 
 " sourcing vimrc after it was updated)
@@ -276,8 +278,8 @@ set novisualbell 	" suppress bell blink
 "============= History =============
 
 " save more in undo history
-set history=1000
-set undolevels=1000
+set history=1000000
+set undolevels=1000000
 
 if v:version >= 703
 	set undofile        " keep a persistent backup file
@@ -363,9 +365,6 @@ call pathogen#infect()
 
 "============== Plugin Specific Settings ==============
 
-" This is necessary to make Gdiff work
-let g:miniBufExplorerMoreThanOne=3
-
 " Solarized color scheme setup
 if has('gui_running')
 	" use the light (yellowish background) scheme in GUI
@@ -377,6 +376,7 @@ else
 	set background=light                " change this if you want dark scheme
 
     " Tell vim to change the shape of the cursor based on mode
+    " only works in some terminals (won't work over ssh usually)
 	let &t_SI = "\<Esc>]50;CursorShape=1\x7"
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
@@ -400,9 +400,6 @@ nnoremap <f2> :TlistToggle<cr>
 if has('win32')
 	let g:snippets_dir="c:/Users/luke/.vim/bundle/snipmate/snippets/,c:/Users/luke/.vim/bundle/snipmate-custom-snippets/snippets"
 endif
-
-" MiniBufExpl Plugin Settings
-let g:miniBufExplMapCTabSwitchBufs = 1 
 
 " key binding for the Gundo (undo preview) plugin
 nnoremap <F7> :GundoToggle<CR>
