@@ -340,6 +340,9 @@ set nowb 			" suppress creation of ~ files
 " force txt files to be highlighted as html
 au BufRead,BufNewFile *.txt setfiletype html
 
+" Fix HTML indenting quirk as per http://bit.ly/XnlHJz
+autocmd FileType html setlocal indentkeys-=*<Return>
+
 " force php files to be treated as php/html - necessary for snipmate to work
 "au BufRead,BufNewFile *.php set filetype=php.html
 
