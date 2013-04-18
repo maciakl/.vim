@@ -409,3 +409,16 @@ nnoremap <C-P> :call PhpDoc()<CR>
 
 " fixing comment style for PHP (this got changed somewhere)
 au Filetype php set comments=sr:/**,m:*\ ,ex:*/,://
+
+
+" OBVIOUS-MODE FIXES
+" for some reason obvious-mode color values were wrong for the latest version
+" of Solarized theme so this fixes the issue and makes obvious-mode behave as
+" it should (ie colorizes the background and not the foreground).
+
+let g:obviousModeInsertHi = 'term=reverse ctermfg=52 guifg=darkred'
+let g:obviousModeCmdwinHi = 'term=reverse ctermfg=22 guifg=darkblue'
+let g:obviousModeModifiedCurrentHi = 'term=reverse ctermfg=30 guifg=darkcyan'
+let g:obviousModeModifiedNonCurrentHi = 'term=reverse ctermfg=30 guifg=darkcyan'
+let g:obviousModeModifiedVertSplitHi = 'term=reverse ctermbg=22 ctermfg=30 guibg=darkblue guifg=darkcyan'
+
