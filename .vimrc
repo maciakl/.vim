@@ -161,6 +161,8 @@ noremap <leader>I cis*<C-r>"*<esc>
 nnoremap / /\v
 vnoremap / /\v
 
+noremap gm :call cursor(0, virtcol('$')/2)<CR>
+
 "============= Command Aliases =============
 
 " open my vimrc in a split
