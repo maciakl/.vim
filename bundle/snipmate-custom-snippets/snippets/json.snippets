@@ -1,0 +1,31 @@
+snippet bootstrap
+	{
+	  "name": "${1:name}",
+	  "version": "${2:version}",
+	  "dependencies": {
+		"bootstrap": "http://twitter.github.com/bootstrap/assets/bootstrap.zip",
+		"jquery": "~1.9.0"
+	  }
+	}
+snippet composer
+	{
+		"require": {
+			"twig/twig": ">=1.8,<2.0-dev"
+		},
+		"minimum-stability": "dev",
+
+	"autoload": {
+			"psr-0": {
+				"${1:name}":       "src/"
+			} 
+	   } 
+	}
+snippet package
+	{
+	  "name": "${1:project-name}",
+	  "version": "${2:version}",
+	  "devDependencies": {
+		"grunt": "~0.4.1",
+		"grunt-contrib-jshint": "~0.1.1"
+	  }
+	}

@@ -339,6 +339,9 @@ set nowb 			" suppress creation of ~ files
 
 "============== Misc ==============
 
+" type detection for JSON files (makes snippets work)
+au! BufRead,BufNewFile *.json set filetype=json 
+
 " force txt files to be highlighted as html
 au BufRead,BufNewFile *.txt setfiletype html
 
