@@ -161,6 +161,7 @@ noremap <leader>I cis*<C-r>"*<esc>
 nnoremap / /\v
 vnoremap / /\v
 
+" Remap gm to skip to the actual middle of the line, not middle of screen
 noremap gm :call cursor(0, virtcol('$')/2)<CR>
 
 "============= Command Aliases =============
