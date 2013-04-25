@@ -26,6 +26,23 @@ snippet span
 	<div class="span${1}">
 		${2}
 	</div>
+snippet scaffold
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="utf-8">
+			<title>${1:title}</title>
+			<meta name="author" content="${2:author}"/>
+			<meta name="description" content="${3:description}"/>
+			<meta name="robots" content="all"/>
+
+			<link rel="icon" href="favicon.ico" />
+			<link rel="stylesheet" href="style.css" />
+		</head>
+		<body>
+			${4:content}
+		</body>
+	</html>
 snippet bootstrap
 	<!DOCTYPE html>
 	<html lang="en">
