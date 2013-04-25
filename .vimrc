@@ -167,7 +167,8 @@ noremap gm :call cursor(0, virtcol('$')/2)<CR>
 "============= Command Aliases =============
 
 " open my vimrc in a split
-command! VIMRC :e $MYVIMRC
+"command! VIMRC :e $MYVIMRC
+command! VIMRC :e $HOME/.vim/.vimrc
 
 " now source it
 command! SOURCE source $MYVIMRC
@@ -192,6 +193,14 @@ command! FILEPATH call g:getFilePath()
 function! g:getFilePath()
     let @" = expand("%:p")
     echom "Current file:" expand("%:p")
+endfunc
+
+" Open or create a custom SnipMate snippet file for the current file type
+" I use this to quickly add snippets from currently edited files
+command! SNIP call g:editSnipmateFile()
+function! g:editSnipmateFile()
+    let p=$HOME."/.vim/bundle/snipmate-custom-snippets/snippets/".&ft.".snippets"
+    :exec "edit ".p
 endfunc
 
 "============= Buffers =============
