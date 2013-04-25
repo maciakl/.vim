@@ -130,7 +130,6 @@ inoremap <C-BS> <esc>bcw
 " Ctrl+De; deletes next word
 inoremap <C-Del> <esc>wcw
 
-
 " repeated C-r pastes in the contents of the unnamed register
 inoremap <C-r><C-r> <C-r>"
 
@@ -152,10 +151,9 @@ noremap <leader>blk I<blockquote><esc>A</blockquote><esc>
 nnoremap <silent> <leader>h1 YpVr=
 nnoremap <silent> <leader>h2 YpVr-
 
-noremap <leader>b ciw**<C-r>"**<esc>
-noremap <leader>B cis**<C-r>"**<esc>
-noremap <leader>i ciw*<C-r>"*<esc>
-noremap <leader>I cis*<C-r>"*<esc>
+" reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
 
 " use regular regex syntax rather than vim regex
 nnoremap / /\v
@@ -163,6 +161,13 @@ vnoremap / /\v
 
 " Remap gm to skip to the actual middle of the line, not middle of screen
 noremap gm :call cursor(0, virtcol('$')/2)<CR>
+
+
+" buffer browsing
+nnoremap <A-Left> :bprev<CR>
+nnoremap <A-Right> :bnext<CR>
+nnoremap <A-Up> :buffers<CR>:buffer<SPACE>  " list buffers
+nnoremap <A-Down> <C-^>                     " switch between last 2 buffers
 
 "============= Command Aliases =============
 
@@ -306,6 +311,9 @@ set mouse=a			" Enable mouse usage (all modes) in terminals
 
 " sudo save file with w!
 cmap w!! w !sudo tee % >/dev/null
+
+autocmd VimLeave * :mksession!
+
 
 "=========== Syntax Highlighting & Indents ==============
 syntax on
