@@ -166,8 +166,8 @@ noremap gm :call cursor(0, virtcol('$')/2)<CR>
 " buffer browsing
 nnoremap <A-Left> :bprev<CR>
 nnoremap <A-Right> :bnext<CR>
-nnoremap <A-Up> :buffers<CR>:buffer<SPACE>  " list buffers
-nnoremap <A-Down> <C-^>                     " switch between last 2 buffers
+nnoremap <A-Up> :buffers<CR>:buffer<SPACE>
+nnoremap <A-Down> <C-^>
 
 "============= Command Aliases =============
 
