@@ -322,7 +322,7 @@ let g:session_dir = $HOME."/.vimsessions"
 autocmd VimLeave * call SaveSession()
 
 " Load session when vim is opened
-autocmd VimEnter * call OpenSession()
+autocmd VimEnter * nested call OpenSession()
 
 " Saves the session to session dir. Creates session dir if it doesn't
 " yet exist. Sessions are named after servername paameter
@@ -355,6 +355,7 @@ function! OpenSession()
     	if filereadable(file)
             execute "source ".file
         endif
+
     endif
 endfunc
 
