@@ -318,6 +318,9 @@ cmap w!! w !sudo tee % >/dev/null
 " where do you want to save sessions?
 let g:session_dir = $HOME."/.vimsessions"
 
+" set session name
+command! -nargs=1 Ses let g:sessionname=<f-args>
+
 " Save sessions whenever vim closes
 autocmd VimLeave * call SaveSession()
 
@@ -329,7 +332,11 @@ autocmd VimEnter * nested call OpenSession()
 function! SaveSession()
 
     " get the server (session) name
-    let s = v:servername
+    if exists("g:sessionname")
+    	let s = g:sessionname
+    else
+        let s = v:servername
+    endif
     
     " create session dir if needed
     if !isdirectory(g:session_dir)
