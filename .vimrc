@@ -441,7 +441,6 @@ else
     " only works in some terminals (won't work over ssh usually)
 	let &t_SI = "\<Esc>]50;CursorShape=1\x7"
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-
 endif
 
 " enable solarized color scheme
@@ -483,4 +482,3 @@ let g:obviousModeCmdwinHi = 'term=reverse ctermfg=22 guifg=darkblue'
 let g:obviousModeModifiedCurrentHi = 'term=reverse ctermfg=30 guifg=darkcyan'
 let g:obviousModeModifiedNonCurrentHi = 'term=reverse ctermfg=30 guifg=darkcyan'
 let g:obviousModeModifiedVertSplitHi = 'term=reverse ctermbg=22 ctermfg=30 guibg=darkblue guifg=darkcyan'
-
