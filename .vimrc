@@ -31,23 +31,13 @@ if has('win32')
 elseif has('mac')
 	set gfn=Monaco:h13	    				" use the Monaco font when on Mac
 
+    " disable the annoying Byte Order Mark that ruins shell scripts
+	set nobomb
+
 " options for every other system
 else
     " use Inconsolata everywhere else 
     set gfn=Inconsolata\ Medium\ 12
-endif
-
-" Enable UTF-8 support so that I can type polish characters
-if has("multi_byte")
-	" set encoding on terminal if not set
-	if &termencoding == ""
-		let &termencoding = &encoding
-	endif
-
-	" force utf-8
-	set encoding=utf-8
-	setglobal fileencoding=utf-8 bomb
-	set fileencodings=ucs-bom,utf-8,latin1
 endif
 
 "============= GUI Options ============= 
