@@ -103,9 +103,6 @@ nnoremap <silent> <leader>O O<ESC>
 " use jj to quickly escape to normal mode while typing 
 inoremap jj <ESC>
 
-" shift Tab to cycle through buffers
-nnoremap <S-Tab> :bnext<CR>
-
 " toggle paste mode (to paste properly indented text)
 nnoremap <F3> :set invpaste paste?<CR>
 set pastetoggle=<F3>
@@ -133,18 +130,6 @@ inoremap <C-Del> <esc>wcw
 " repeated C-r pastes in the contents of the unnamed register
 inoremap <C-r><C-r> <C-r>"
 
-" surround the current word with quotes
-nnoremap <leader>' ciw"<C-r>""<esc>
-nnoremap <leader>, ciw<<C-r>"><esc>
-nnoremap <leader>( ciw(<C-r>")<esc>
-
-" surround word/sentence with emp, strong
-noremap <leader>e ciw<emp><C-r>"</emp><esc>
-noremap <leader>E cis<emp><C-r>"</emp><esc>
-
-noremap <leader>s ciw<strong><C-r>"</strong><esc>
-noremap <leader>S cis<strong><C-r>"</strong><esc>
-
 noremap <leader>blk I<blockquote><esc>A</blockquote><esc>
 
 " Markdown bindings
@@ -162,6 +147,10 @@ vnoremap / /\v
 " Remap gm to skip to the actual middle of the line, not middle of screen
 noremap gm :call cursor(0, virtcol('$')/2)<CR>
 
+"============= Buffers =============
+
+" buffers can exist in background without being in a window
+set hidden
 
 " buffer browsing
 nnoremap <A-Left> :bprev<CR>
@@ -169,14 +158,18 @@ nnoremap <A-Right> :bnext<CR>
 nnoremap <A-Up> :buffers<CR>:buffer<SPACE>
 nnoremap <A-Down> <C-^>
 
-"============= Command Aliases =============
+" Alt Tab to cycle through buffers
+nnoremap <A-Tab> :bnext<CR>
+
+"============= Editing Vimrc =============
 
 " open my vimrc in a split
-"command! VIMRC :e $MYVIMRC
 command! VIMRC :e $HOME/.vim/.vimrc
 
 " now source it
 command! SOURCE source $MYVIMRC
+
+"============ Saving and Closing ============
 
 " for when you mess up and hold shift too long (using ! to prevent errors while 
 " sourcing vimrc after it was updated)
@@ -200,6 +193,8 @@ function! g:getFilePath()
     echom "Current file:" expand("%:p")
 endfunc
 
+"============ Snipmate on Windows ==========
+
 " Open or create a custom SnipMate snippet file for the current file type
 " I use this to quickly add snippets from currently edited files
 command! SNIP call g:editSnipmateFile()
@@ -207,10 +202,6 @@ function! g:editSnipmateFile()
     let p=$HOME."/.vim/bundle/snipmate-custom-snippets/snippets/".&ft.".snippets"
     :exec "edit ".p
 endfunc
-
-"============= Buffers =============
-
-set hidden 	" buffers can exist in background without being in a window
 
 "============= Spell Check =============
 
@@ -309,10 +300,6 @@ endif
 set autowrite		" Automatically save before commands like :next and :make
 set mouse=a			" Enable mouse usage (all modes) in terminals
 
-" sudo save file with w!
-cmap w!! w !sudo tee % >/dev/null
-
-
 "============= Session Handling =============
 
 " where do you want to save sessions?
@@ -409,7 +396,7 @@ set noswapfile 		" suppress creation of swap files
 set nobackup 		" suppress creation of backup files
 set nowb 			" suppress creation of ~ files
 
-"============== Misc ==============
+"============== Filetypes ==============
 
 " type detection for JSON files (makes snippets work)
 au! BufRead,BufNewFile *.json set filetype=json 
