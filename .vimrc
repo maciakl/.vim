@@ -1,16 +1,20 @@
-"============= Runtime Stuff =============
+" Custom VIM Settings
+" Luke Maciak (2013)
+" Vim 7.3 recommended.
 
+"============= Runtime Stuff =============
 " probably not necessary, but...
 set nocompatible
 
 " Enable mouse usage (all modes) in terminals
 set mouse=a
 
-" change the leader key to ,
+" change the leader key to , (comma)
 " while the default \ is nice, comma is faster
 let mapleader=","
 
 " use blowfish encryption (stronger than standard)
+" Why? Just because.
 if v:version >= 703
 	set cryptmethod=blowfish
 endif
@@ -46,6 +50,7 @@ else
 endif
 
 "============= GUI Options ============= 
+" These affect GVim, not console Vim
 
 " remove unnecessary toolbars
 if has('gui_running')
@@ -64,14 +69,12 @@ nnoremap ; :
 " move by screen lines, not by real lines - great for creative writing
 nnoremap j gj
 nnoremap k gk
-"nnoremap <up> gk
-"nnoremap <down> gj
 
 " also in visual mode
 vnoremap j gj
 vnoremap k gk
-vnoremap <up> gk
-vnoremap <down> gj
+"vnoremap <up> gk
+"vnoremap <down> gj
 
 " make up and down arrows work in insert mode
 " c-o jumps to normal mode for one command
@@ -247,7 +250,7 @@ function! OpenSession()
     endif
 endfunc
 
-"============ Snipmate on Windows ==========
+"============ Snipmate ==========
 
 " Open or create a custom SnipMate snippet file for the current file type
 " I use this to quickly add snippets from currently edited files
@@ -416,13 +419,18 @@ set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
 
 "============== Pathogen ==============
-
+" Plugin manager:
+" Lets you store your plugins in individual folders
+" inside the .vim/bundle directory (also as git submodules).
+" This line initializes it and loads all plugins:
 call pathogen#infect()
 
 
 "============== Plugin Specific Settings ==============
+" Must be specified after pathogen#infect call to take
+" effect. These modify plugin behavior.
 
-" Solarized color scheme setup
+" Solarized color scheme setup:
 if has('gui_running')
 	" use the light (yellowish background) scheme in GUI
 	set background=light
@@ -449,10 +457,13 @@ highlight ColorColumn guibg=lightyellow
 " bind NERDTree to F1 (we don't need help)
 nnoremap <f1> :NERDTreeToggle<cr>
 
-" TagList shortcut
+" bind TagList to F2
 nnoremap <f2> :TlistToggle<cr>
 
 " force snipmate accept custom defined snippets on windows
+" on other platform this seems to work out of the box, but on windows
+" you have to specify the directories in correct order manually.
+" I keep custom snippets in .vim/bundle/snipmate-custom-snippets directory
 if has('win32')
 	let g:snippets_dir="c:/Users/luke/.vim/bundle/snipmate/snippets/,c:/Users/luke/.vim/bundle/snipmate-custom-snippets/snippets"
 endif
@@ -462,7 +473,6 @@ nnoremap <F7> :GundoToggle<CR>
 
 " bind the PHPDoc command to C-P only for php files
 nnoremap <C-P> :call PhpDoc()<CR> 
-
 " fixing comment style for PHP (this got changed somewhere)
 au Filetype php set comments=sr:/**,m:*\ ,ex:*/,://
 
@@ -471,7 +481,6 @@ au Filetype php set comments=sr:/**,m:*\ ,ex:*/,://
 " for some reason obvious-mode color values were wrong for the latest version
 " of Solarized theme so this fixes the issue and makes obvious-mode behave as
 " it should (ie colorizes the background and not the foreground).
-
 let g:obviousModeInsertHi = 'term=reverse ctermfg=52 guifg=darkred'
 let g:obviousModeCmdwinHi = 'term=reverse ctermfg=22 guifg=darkblue'
 let g:obviousModeModifiedCurrentHi = 'term=reverse ctermfg=30 guifg=darkcyan'
