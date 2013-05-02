@@ -3,6 +3,9 @@
 " probably not necessary, but...
 set nocompatible
 
+" Enable mouse usage (all modes) in terminals
+set mouse=a
+
 " change the leader key to ,
 " while the default \ is nice, comma is faster
 let mapleader=","
@@ -12,10 +15,10 @@ if v:version >= 703
 	set cryptmethod=blowfish
 endif
 
-
 " windows stuff (ignore on Linux)
 if has('win32')
-	set gfn=Consolas:h13:cANSI 				" when on Windows use Consolas
+	" Use Consolas font, size 13
+	set gfn=Consolas:h13:cANSI
     
     " make Cygwin the default shell on windows
     " this ensures that escaping to shell works as expected
@@ -24,19 +27,21 @@ if has('win32')
     set shellredir=>%s\ 2>&1
     set shellslash
 
+    " Fix Ruby path to ensure things are working
     " this may need to be changed on your system
     let g:ruby_path = ':C:\Ruby193\bin'
 
 " options for Mac only
 elseif has('mac')
-	set gfn=Monaco:h13	    				" use the Monaco font when on Mac
+    " Use Monaco font, size 13
+	set gfn=Monaco:h13	
 
     " disable the annoying Byte Order Mark that ruins shell scripts
 	set nobomb
 
 " options for every other system
 else
-    " use Inconsolata everywhere else 
+    " use Inconsolata, size 12 everywhere else 
     set gfn=Inconsolata\ Medium\ 12
 endif
 
@@ -59,8 +64,8 @@ nnoremap ; :
 " move by screen lines, not by real lines - great for creative writing
 nnoremap j gj
 nnoremap k gk
-nnoremap <up> gk
-nnoremap <down> gj
+"nnoremap <up> gk
+"nnoremap <down> gj
 
 " also in visual mode
 vnoremap j gj
@@ -83,7 +88,7 @@ nnoremap <f6> :!ctags -R<cr>
 " pressing <leader><space> clears the search highlights
 nmap <silent> <leader><space> :nohlsearch<CR> 
 
-" break a line at cursor 
+" break a line at cursor without exiting normal mode
 nnoremap <silent> <leader><CR> i<CR><ESC>
 
 " insert a blank line with <leader>o and <leader>O
@@ -98,7 +103,7 @@ nnoremap <F3> :set invpaste paste?<CR>
 set pastetoggle=<F3>
 set showmode
 
-" use \y and \p to copy and paste from system clipboard
+" use ,y and ,p to copy and paste from system clipboard
 noremap <leader>y "+y
 noremap <leader>Y "+Y
 noremap <leader>p "+p
@@ -109,12 +114,13 @@ noremap <C-l> [sz=
 
 " use Ctrl+L in insert mode to correct last misspelled word
 inoremap <C-l> <esc>[sz=
+" jump back to last insert point
 noremap <C-i> gi
 
 " Ctrl+Backspace deletes last word
 inoremap <C-BS> <esc>bcw
 
-" Ctrl+De; deletes next word
+" Ctrl+Del deletes next word
 inoremap <C-Del> <esc>wcw
 
 " repeated C-r pastes in the contents of the unnamed register
@@ -122,7 +128,7 @@ inoremap <C-r><C-r> <C-r>"
 
 noremap <leader>blk I<blockquote><esc>A</blockquote><esc>
 
-" Markdown bindings
+" Markdown bindings: make headers
 nnoremap <silent> <leader>h1 YpVr=
 nnoremap <silent> <leader>h2 YpVr-
 
@@ -142,14 +148,19 @@ noremap gm :call cursor(0, virtcol('$')/2)<CR>
 " buffers can exist in background without being in a window
 set hidden
 
+" Automatically save before commands like :next and :make
+set autowrite
+
 " buffer browsing
-nnoremap <A-Left> :bprev<CR>
-nnoremap <A-Right> :bnext<CR>
-nnoremap <A-Up> :buffers<CR>:buffer<SPACE>
-nnoremap <A-Down> <C-^>
+nnoremap <Left> :bprev<CR>
+nnoremap <Right> :bnext<CR>
+" show buffer list
+nnoremap <Up> :buffers<CR>:buffer<SPACE>
+" jump to previous buffer
+nnoremap <Down> <C-^>
 
 " Alt Tab to cycle through buffers
-nnoremap <A-Tab> :bnext<CR>
+nnoremap <Tab> :bnext<CR>
 
 "============= Editing Vimrc =============
 
@@ -181,6 +192,59 @@ command! FILEPATH call g:getFilePath()
 function! g:getFilePath()
     let @" = expand("%:p")
     echom "Current file:" expand("%:p")
+endfunc
+
+"============= Session Handling =============
+
+" where do you want to save sessions?
+let g:session_dir = $HOME."/.vimsessions"
+
+" set session name
+command! -nargs=1 Ses let g:sessionname=<f-args>
+
+" Save sessions whenever vim closes
+autocmd VimLeave * call SaveSession()
+
+" Load session when vim is opened
+autocmd VimEnter * nested call OpenSession()
+
+" Saves the session to session dir. Creates session dir if it doesn't
+" yet exist. Sessions are named after servername paameter
+function! SaveSession()
+
+    " get the server (session) name
+    if exists("g:sessionname")
+    	let s = g:sessionname
+    else
+        let s = v:servername
+    endif
+    
+    " create session dir if needed
+    if !isdirectory(g:session_dir)
+    	call mkdir(g:session_dir, "p")
+    endif
+
+    " save session using the server name
+    execute "mksession! ".g:session_dir."/".s.".session.vim"
+endfunc
+
+" Open a saved session if there were no file-names passed as arguments
+" The session opened is based on servername (session name). If there
+" is no session for this server, none will be opened
+function! OpenSession()
+
+    " check if file names were passed as arguments
+    if argc() == 0
+
+    	let sn = v:servername
+    	let file = g:session_dir."/".sn.".session.vim"
+
+        " if session file exists, load it
+    	if filereadable(file)
+            execute "source ".file
+        endif
+
+    endif
 endfunc
 
 "============ Snipmate on Windows ==========
@@ -283,65 +347,6 @@ if v:version >= 703
 	set undofile        " keep a persistent backup file
 	set undodir=$TEMP
 endif
-
-
-"============= Misc =============
-
-set autowrite		" Automatically save before commands like :next and :make
-set mouse=a			" Enable mouse usage (all modes) in terminals
-
-"============= Session Handling =============
-
-" where do you want to save sessions?
-let g:session_dir = $HOME."/.vimsessions"
-
-" set session name
-command! -nargs=1 Ses let g:sessionname=<f-args>
-
-" Save sessions whenever vim closes
-autocmd VimLeave * call SaveSession()
-
-" Load session when vim is opened
-autocmd VimEnter * nested call OpenSession()
-
-" Saves the session to session dir. Creates session dir if it doesn't
-" yet exist. Sessions are named after servername paameter
-function! SaveSession()
-
-    " get the server (session) name
-    if exists("g:sessionname")
-    	let s = g:sessionname
-    else
-        let s = v:servername
-    endif
-    
-    " create session dir if needed
-    if !isdirectory(g:session_dir)
-    	call mkdir(g:session_dir, "p")
-    endif
-
-    " save session using the server name
-    execute "mksession! ".g:session_dir."/".s.".session.vim"
-endfunc
-
-" Open a saved session if there were no file-names passed as arguments
-" The session opened is based on servername (session name). If there
-" is no session for this server, none will be opened
-function! OpenSession()
-
-    " check if file names were passed as arguments
-    if argc() == 0
-
-    	let sn = v:servername
-    	let file = g:session_dir."/".sn.".session.vim"
-
-        " if session file exists, load it
-    	if filereadable(file)
-            execute "source ".file
-        endif
-
-    endif
-endfunc
 
 
 "=========== Syntax Highlighting & Indents ==============
