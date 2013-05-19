@@ -451,7 +451,7 @@ colorscheme solarized
 
 " change the color of the column 80
 " this needs to be called after solarized
-highlight ColorColumn guibg=lightyellow
+highlight ColorColumn guibg=lightyellow ctermbg=227
 
 
 " bind NERDTree to F1 (we don't need help)
