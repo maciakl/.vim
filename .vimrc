@@ -14,7 +14,7 @@ set mouse=a
 let mapleader=","
 
 " use blowfish encryption (stronger than standard)
-" Why? Just because.
+" Why? Just because. Only in recent versions
 if v:version >= 703
     set cryptmethod=blowfish
 endif
@@ -35,8 +35,7 @@ if has('win32')
     " this may need to be changed on your system
     let g:ruby_path = ':C:\Ruby193\bin'
 
-
-    " options for Mac only
+" options for Mac only
 elseif has('mac')
     " Use Monaco font, size 13
     set gfn=Monaco:h13	
@@ -46,14 +45,17 @@ elseif has('mac')
 
     " options for every other system
 else
-    " use Inconsolata, size 12 everywhere else 
+    " use Inconsolata, size 10 everywhere else 
     set gfn=Inconsolata\ Medium\ 10
 endif
 
 "============= GUI Options ============= 
 " These affect GVim, not console Vim
+" I don't like having a separate .gvimrc because of maintenance and
+" compatibility issues so GUI settings are specified right in .vimrc
+" but wrapped in conditionals
 
-" remove unnecessary toolbars
+" remove unnecessary toolbars (why do they exist anyway?)
 if has('gui_running')
     set guioptions-=T 			" disable tool bar
     set guioptions-=m 			" disable menu bar
@@ -74,6 +76,8 @@ nnoremap k gk
 " also in visual mode
 vnoremap j gj
 vnoremap k gk
+
+" optionally make arrows work in visual mode
 "vnoremap <up> gk
 "vnoremap <down> gj
 
@@ -113,6 +117,10 @@ noremap <leader>Y "+Y
 noremap <leader>p "+p
 noremap <leader>P "+P
 
+" use +/- to increment/decrement numbers
+nnoremap + <C-a>
+nnoremap - <C-x>
+
 " automatically jump to last misspelled word and attempt replacing it
 noremap <C-l> [sz=
 
@@ -129,8 +137,6 @@ inoremap <C-Del> <esc>wcw
 
 " repeated C-r pastes in the contents of the unnamed register
 inoremap <C-r><C-r> <C-r>"
-
-noremap <leader>blk I<blockquote><esc>A</blockquote><esc>
 
 " Markdown bindings: make headers
 nnoremap <silent> <leader>h1 YpVr=
@@ -203,7 +209,7 @@ endfunc
 " where do you want to save sessions?
 let g:session_dir = $HOME."/.vimsessions"
 
-" set session name
+" set session name using Ses command
 command! -nargs=1 Ses let g:sessionname=<f-args>
 
 " Save sessions whenever vim closes
@@ -213,7 +219,7 @@ autocmd VimLeave * call SaveSession()
 autocmd VimEnter * nested call OpenSession()
 
 " Saves the session to session dir. Creates session dir if it doesn't
-" yet exist. Sessions are named after servername paameter
+" yet exist. Sessions are named after servername parameter or g:sessionname
 function! SaveSession()
 
     " get the server (session) name
@@ -381,9 +387,17 @@ set nofoldenable 	" screw folding
 
 "============== Completion ==============
 
+" Enable wild menu, but ignore nonsensical files
 set wildmenu
 set wildmode=list:longest
 set wildignore=*.swp,*.bak,*.pyc,*.class,*.o,*.obj,*~
+set wildignore+=*DS_Store*
+set wildignore+=*.gem
+set wildignore+=log/**
+set wildignore+=tmp/**
+set wildignore+=*.png,*.jpg,*.gif
+set wildignore+=*.so,*.swp,*.zip,*/.Trash/**,*.pdf,*.dmg,*/Library/**
+set wildignore+=*/.nx/**,*.app
 
 " longer more descriptive auto-complete prompts
 set completeopt=longest,menuone
@@ -443,8 +457,13 @@ else
 
     " Tell vim to change the shape of the cursor based on mode
     " only works in some terminals (won't work over ssh usually)
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+    if exists('$TMUX')
+        let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+        let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+    else
+        let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+        let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+    endif
 endif
 
 " enable solarized color scheme
@@ -457,7 +476,8 @@ highlight ColorColumn guibg=lightyellow ctermbg=227
 " Change color of the list characters and use
 " special chars to indicate tabs and newlines
 " These can be displayed using :set list!
-set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ ,extends:❯,precedes:❮,nbsp:␣,eol:¬
+set showbreak=↪
 highlight NonText guifg=orange
 highlight SpecialKey guifg=orange
 
@@ -485,7 +505,9 @@ nnoremap <C-P> :call PhpDoc()<CR>
 au Filetype php set comments=sr:/**,m:*\ ,ex:*/,://
 
 
+" ==================
 " OBVIOUS-MODE FIXES
+" ==================
 " for some reason obvious-mode color values were wrong for the latest version
 " of Solarized theme so this fixes the issue and makes obvious-mode behave as
 " it should (ie colorizes the background and not the foreground).
@@ -494,3 +516,10 @@ let g:obviousModeCmdwinHi = 'term=reverse ctermfg=22 guifg=darkblue'
 let g:obviousModeModifiedCurrentHi = 'term=reverse ctermfg=30 guifg=darkcyan'
 let g:obviousModeModifiedNonCurrentHi = 'term=reverse ctermfg=30 guifg=darkcyan'
 let g:obviousModeModifiedVertSplitHi = 'term=reverse ctermbg=22 ctermfg=30 guibg=darkblue guifg=darkcyan'
+
+" ====================
+" VIM-NEATSTATUS FIXES
+" ====================
+" For some reason sourcing VIMRC screws up the status line so here we re-source
+" it to get the hilights right.
+source ~/.vim/bundle/vim-neatstatus/plugin/neatstatus.vim
