@@ -43,10 +43,17 @@ elseif has('mac')
     " disable the annoying Byte Order Mark that ruins shell scripts
     set nobomb
 
-    " options for every other system
+" options for every other system
 else
     " use Inconsolata, size 10 everywhere else 
     set gfn=Inconsolata\ Medium\ 10
+
+    " Change the cursor shape in Gnome Terminal based on the mode
+    if !has("gui_running")
+      au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Solarized/cursor_shape ibeam"
+      au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Solarized/cursor_shape block"
+    endif
+
 endif
 
 "============= GUI Options ============= 
