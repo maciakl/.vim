@@ -16,14 +16,14 @@ let mapleader=","
 " use blowfish encryption (stronger than standard)
 " Why? Just because.
 if v:version >= 703
-	set cryptmethod=blowfish
+    set cryptmethod=blowfish
 endif
 
 " windows stuff (ignore on Linux)
 if has('win32')
-	" Use Consolas font, size 13
-	set gfn=Consolas:h13:cANSI
-    
+    " Use Consolas font, size 13
+    set gfn=Consolas:h13:cANSI
+
     " make Cygwin the default shell on windows
     " this ensures that escaping to shell works as expected
     set shellxquote=
@@ -35,18 +35,19 @@ if has('win32')
     " this may need to be changed on your system
     let g:ruby_path = ':C:\Ruby193\bin'
 
-" options for Mac only
+
+    " options for Mac only
 elseif has('mac')
     " Use Monaco font, size 13
-	set gfn=Monaco:h13	
+    set gfn=Monaco:h13	
 
     " disable the annoying Byte Order Mark that ruins shell scripts
-	set nobomb
+    set nobomb
 
-" options for every other system
+    " options for every other system
 else
     " use Inconsolata, size 12 everywhere else 
-    set gfn=Inconsolata\ Medium\ 12
+    set gfn=Inconsolata\ Medium\ 10
 endif
 
 "============= GUI Options ============= 
@@ -54,11 +55,11 @@ endif
 
 " remove unnecessary toolbars
 if has('gui_running')
-	set guioptions-=T 			" disable tool bar
-	set guioptions-=m 			" disable menu bar
+    set guioptions-=T 			" disable tool bar
+    set guioptions-=m 			" disable menu bar
 
-	" make the default window bigger 	
-	set lines=45 columns=160
+    " make the default window bigger 	
+    set lines=45 columns=160
 endif
 
 "============= Key Mappings ============= 
@@ -217,14 +218,14 @@ function! SaveSession()
 
     " get the server (session) name
     if exists("g:sessionname")
-    	let s = g:sessionname
+        let s = g:sessionname
     else
         let s = v:servername
     endif
-    
+
     " create session dir if needed
     if !isdirectory(g:session_dir)
-    	call mkdir(g:session_dir, "p")
+        call mkdir(g:session_dir, "p")
     endif
 
     " save session using the server name
@@ -239,11 +240,11 @@ function! OpenSession()
     " check if file names were passed as arguments
     if argc() == 0
 
-    	let sn = v:servername
-    	let file = g:session_dir."/".sn.".session.vim"
+        let sn = v:servername
+        let file = g:session_dir."/".sn.".session.vim"
 
         " if session file exists, load it
-    	if filereadable(file)
+        if filereadable(file)
             execute "source ".file
         endif
 
@@ -270,9 +271,9 @@ set spelllang=en
 " Line numbers (set relative in 7.3 because it's useful); 
 " Fall back to absolute if 7.2 and lower
 if v:version >= 703
-	set rnu 	" if version 7.3 set relative line numbers
+    set rnu 	" if version 7.3 set relative line numbers
 else
-	set nu		" otherwise set absolute, because there is no rnu
+    set nu		" otherwise set absolute, because there is no rnu
 endif
 
 set cul		" highlight cursor line 
@@ -280,11 +281,11 @@ set nopaste	" pasting with auto-indent disabled (breaks bindings in cli vim)
 
 " toggle between relative and absolute line numbers
 function! g:ToggleNuMode()
-	if(&rnu == 1)
-		set nu
-	else
-		set rnu
-	endif
+    if(&rnu == 1)
+        set nu
+    else
+        set rnu
+    endif
 endfunc
 
 " map the above function to F5
@@ -347,8 +348,8 @@ set history=1000000
 set undolevels=1000000
 
 if v:version >= 703
-	set undofile        " keep a persistent backup file
-	set undodir=$TEMP
+    set undofile        " keep a persistent backup file
+    set undodir=$TEMP
 endif
 
 
@@ -432,17 +433,17 @@ call pathogen#infect()
 
 " Solarized color scheme setup:
 if has('gui_running')
-	" use the light (yellowish background) scheme in GUI
-	set background=light
+    " use the light (yellowish background) scheme in GUI
+    set background=light
 else
-	" specific settings for terminal 
-	set t_Co=256                        " force vim to use 256 colors
-	let g:solarized_termcolors=256      " use solarized 256 fallback
-	set background=light                " change this if you want dark scheme
+    " specific settings for terminal 
+    set t_Co=256                        " force vim to use 256 colors
+    let g:solarized_termcolors=256      " use solarized 256 fallback
+    set background=light                " change this if you want dark scheme
 
     " Tell vim to change the shape of the cursor based on mode
     " only works in some terminals (won't work over ssh usually)
-	let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
@@ -452,6 +453,13 @@ colorscheme solarized
 " change the color of the column 80
 " this needs to be called after solarized
 highlight ColorColumn guibg=lightyellow ctermbg=227
+
+" Change color of the list characters and use
+" special chars to indicate tabs and newlines
+" These can be displayed using :set list!
+set listchars=tab:▸\ ,eol:¬
+highlight NonText guifg=orange
+highlight SpecialKey guifg=orange
 
 
 " bind NERDTree to F1 (we don't need help)
@@ -465,7 +473,7 @@ nnoremap <f2> :TlistToggle<cr>
 " you have to specify the directories in correct order manually.
 " I keep custom snippets in .vim/bundle/snipmate-custom-snippets directory
 if has('win32')
-	let g:snippets_dir="c:/Users/luke/.vim/bundle/snipmate/snippets/,c:/Users/luke/.vim/bundle/snipmate-custom-snippets/snippets"
+    let g:snippets_dir="c:/Users/luke/.vim/bundle/snipmate/snippets/,c:/Users/luke/.vim/bundle/snipmate-custom-snippets/snippets"
 endif
 
 " key binding for the Gundo (undo preview) plugin
