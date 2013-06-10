@@ -536,6 +536,7 @@ let g:obviousModeModifiedVertSplitHi = 'term=reverse ctermbg=22 ctermfg=30 guibg
 
 " Enable unite to access history/yanks
 let g:unite_source_history_yank_enable = 1
+let g:unite_split_rule = "botright"
 
 autocmd FileType unite call s:unite_settings()
 function! s:unite_settings()
