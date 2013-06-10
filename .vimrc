@@ -261,9 +261,11 @@ function! OpenSession()
         let sn = v:servername
         let file = g:session_dir."/".sn.".session.vim"
 
-        " if session file exists, load it
+        " if session file exists, ask user if he wants to load it
         if filereadable(file)
-            execute "source ".file
+            if(confirm("Load last session?\n\n".file, "&Yes\n&No", 1)==1)
+                execute "source ".file
+            endif
         endif
 
     endif
