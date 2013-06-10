@@ -171,13 +171,18 @@ set autowrite
 " buffer browsing
 nnoremap <Left> :bprev<CR>
 nnoremap <Right> :bnext<CR>
+
 " show buffer list
-nnoremap <Up> :buffers<CR>:buffer<SPACE>
+nnoremap <Up> :Unite buffer -buffer-name=Buffers<CR>
+"nnoremap <Up> :buffers<CR>:buffer<SPACE>
+
 " jump to previous buffer
-nnoremap <Down> <C-^>
+" nnoremap <Down> <C-^>
 
 " Alt Tab to cycle through buffers
 nnoremap <Tab> :bnext<CR>
+
+nnoremap <Down> :Unite file -start-insert -buffer-name=Files<CR>
 
 "============= Editing Vimrc =============
 
@@ -523,6 +528,32 @@ let g:obviousModeCmdwinHi = 'term=reverse ctermfg=22 guifg=darkblue'
 let g:obviousModeModifiedCurrentHi = 'term=reverse ctermfg=30 guifg=darkcyan'
 let g:obviousModeModifiedNonCurrentHi = 'term=reverse ctermfg=30 guifg=darkcyan'
 let g:obviousModeModifiedVertSplitHi = 'term=reverse ctermbg=22 ctermfg=30 guibg=darkblue guifg=darkcyan'
+
+" =====================
+" UNITE CUSTOM SETTINGS
+" =====================
+" These affect only the Unite minibuffer on top of the window
+
+" Enable unite to access history/yanks
+let g:unite_source_history_yank_enable = 1
+
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+
+    " Use Esc to exit Unite - that's more convinient than :q or :bw
+    nmap <buffer> <ESC> <Plug>(unite_exit)
+    imap <buffer> <ESC> <Plug>(unite_exit)
+
+    " Remap choose action to Ctrl+a from default Tab 
+    imap <buffer> <c-a> <Plug>(unite_choose_action)
+
+    " Disable tab (ideally I'd like file completion here)
+    imap <buffer> <Tab> <Nop>
+
+    " Use jj to exit insert mode (we remapped Esc so this is needed)
+    imap <buffer> jj <Plug>(unite_insert_leave)
+endfunc
+
 
 " ====================
 " VIM-NEATSTATUS FIXES
