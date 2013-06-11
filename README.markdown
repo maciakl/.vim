@@ -5,7 +5,7 @@ This is my personal git directory, under source control ready to be deployed
 across across all platforms.
 
 Plugis
-===
+---
 
 These are the custom plugins I use:
 
@@ -29,7 +29,7 @@ These are the custom plugins I use:
 * [Vim-surround](https://github.com/tpope/vim-surround) - bindings to easily surround text with stuff
 
 Custom Key Bindings
-===
+---
 
 The `<leader>` key is bound to `,`.
 
@@ -59,7 +59,7 @@ The `<leader>` key is bound to `,`.
 
 
 Custom Commands
-===
+---
 
 * `:VIMRC`    -  open .vimrc in current windoe
 * `:SOURCE`   -  source .vimrc
@@ -70,7 +70,7 @@ Custom Commands
 * `:Ses`      -  set session name for current session
 
 Deploying
-===
+---
 
 On Linux and Mac:
 
@@ -107,7 +107,7 @@ On Windows XP:
 Note that you will need [junction.exe](http://technet.microsoft.com/en-us/sysinternals/bb896768.aspx) from Sysinternals to create the symbolic link for the directory. The fsutil executable should be on your system by default.
 
 Other Prerequisites
-===================
+-------------------
 
 Your vim should be compiled with `+dialog` and `+python`.
 
