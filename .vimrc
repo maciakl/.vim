@@ -22,7 +22,7 @@ endif
 " windows stuff (ignore on Linux)
 if has('win32')
     " Use Consolas font, size 13
-    set gfn=Consolas:h13:cANSI
+    set gfn=Consolas:h12:cANSI
 
     " make Cygwin the default shell on windows
     " this ensures that escaping to shell works as expected
@@ -38,7 +38,7 @@ if has('win32')
 " options for Mac only
 elseif has('mac')
     " Use Monaco font, size 13
-    set gfn=Monaco:h13	
+    set gfn=Monaco:h12	
 
     " disable the annoying Byte Order Mark that ruins shell scripts
     set nobomb
