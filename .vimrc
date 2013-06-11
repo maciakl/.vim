@@ -172,16 +172,22 @@ set autowrite
 nnoremap <Left> :bprev<CR>
 nnoremap <Right> :bnext<CR>
 
-" show buffer list
+" show buffer list using Unite
 nnoremap <Up> :Unite buffer -buffer-name=Buffers<CR>
+
+" show buffer list without Unite
 "nnoremap <Up> :buffers<CR>:buffer<SPACE>
 
 " jump to previous buffer
 " nnoremap <Down> <C-^>
 
-" Alt Tab to cycle through buffers
+" Tab to cycle through buffers
 nnoremap <Tab> :bnext<CR>
 
+" Use Ctrl-Tab to toggle between splits
+nnoremap <C-Tab> <C-W><C-W>
+
+" Open Unite file browser in search/narrow mode
 nnoremap <Down> :Unite file -start-insert -buffer-name=Files<CR>
 
 "============= Editing Vimrc =============
@@ -395,6 +401,7 @@ set laststatus=2
 
 set nofoldenable 	" screw folding
 
+" Set up specific folding threshold 
 "set foldmethod=indent
 "set foldnestmax=3
 "set foldenable
@@ -437,12 +444,12 @@ autocmd FileType html setlocal indentkeys-=*<Return>
 " force php files to be treated as php/html - necessary for snipmate to work
 "au BufRead,BufNewFile *.php set filetype=php.html
 
-" IMPORTANT: grep will sometimes skip displaying the file name if you
+" Grep will sometimes skip displaying the file name if you
 " search in a singe file. This will confuse Latex-Suite. Set your grep
 " program to always generate a file-name.
 set grepprg=grep\ -nH\ $*
 
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" Starting with Vim 7, the filetype of empty .tex files defaults to
 " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
@@ -455,7 +462,10 @@ let g:tex_flavor='latex'
 call pathogen#infect()
 
 
+"======================================================
 "============== Plugin Specific Settings ==============
+"======================================================
+
 " Must be specified after pathogen#infect call to take
 " effect. These modify plugin behavior.
 

@@ -39,6 +39,7 @@ The `<leader>` key is bound to `,`.
 * `<C-L>`                       -  fix last typo
 * `<C-P>`                       -  generate PHPDoc comments at cursor
 * `<C-R>`                       -  paste in contents of the unnamed register
+* `<C-Tab>`                     -  toggle between splits
 * `<C-_>`                       -  close html tag
 * `<Down>`                      -  search current directory for files with Unite
 * `<F1>`                        -  toggle NERDTree file browser
@@ -49,6 +50,7 @@ The `<leader>` key is bound to `,`.
 * `<F7>`                        -  toggle Gundo undo browser
 * `<F10>`                       -  insert current date at cursor
 * `<Left>` and `<Right>`        -  browse through buffers
+* `<Tab>`                       -  next buffer
 * `<Up>`                        -  search/display open buffers with Unite
 * `<leader><cr>`                -  break line at cursor (normal mode)
 * `<leader><space>`             -  clear search highlights
