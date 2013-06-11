@@ -490,8 +490,8 @@ highlight ColorColumn guibg=lightyellow ctermbg=227
 " Change color of the list characters and use
 " special chars to indicate tabs and newlines
 " These can be displayed using :set list!
-set listchars=tab:▸\ ,extends:❯,precedes:❮,nbsp:␣,eol:¬
-set showbreak=↪
+"set listchars=tab:▸\ ,extends:❯,precedes:❮,nbsp:␣,eol:¬
+"set showbreak=↪
 highlight NonText guifg=orange
 highlight SpecialKey guifg=orange
 
@@ -551,7 +551,7 @@ function! s:unite_settings()
     imap <buffer> <c-a> <Plug>(unite_choose_action)
 
     " Disable tab (ideally I'd like file completion here)
-    imap <buffer> <Tab> <Nop>
+    imap <buffer> <Tab> <CR>
 
     " Use jj to exit insert mode (we remapped Esc so this is needed)
     imap <buffer> jj <Plug>(unite_insert_leave)
