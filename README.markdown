@@ -113,13 +113,13 @@ Your vim should be compiled with `+dialog` and `+python`.
 
 You may also need these:
 
-  - [Exuberant Ctags](http://ctags.sourceforge.net/) 
+- [Exuberant Ctags](http://ctags.sourceforge.net/) 
      
      - On windows download `ctags.exe` and put somewhere in your path
      - On a mac use [Homebrew](http://mxcl.github.com/homebrew/) to install the package ctags. Then add this to `.basrc` or `.profile`
      
-    	alias ctags="`brew --prefix`/bin/ctags"
+    alias ctags="`brew --prefix`/bin/ctags"
 
-  - [Python 2.7](http://www.python.org/getit/releases/2.7/)
+- [Python 2.7](http://www.python.org/getit/releases/2.7/)
 
 
