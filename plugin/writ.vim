@@ -8,11 +8,12 @@ function! WritToggle()
     	set foldcolumn=0
         SOURCE
     else
+    	SOURCE
         let s:writ = 1
         setlocal nonumber
         setlocal norelativenumber
-        set foldcolumn=2
-        set columns=82
-        let &guifont=substitute(&guifont, ':h\zs\d\+', '\=submatch(0)+3', '')
+        set foldcolumn=3
+        set columns=83
+        let &guifont=substitute(&guifont, ':h\zs\d\+', '\=submatch(0)+1', '')
     endif
 endfunc
