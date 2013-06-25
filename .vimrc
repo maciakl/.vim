@@ -573,4 +573,4 @@ endfunc
 " ====================
 " For some reason sourcing VIMRC screws up the status line so here we re-source
 " it to get the hilights right.
-source ~/.vim/bundle/vim-neatstatus/plugin/neatstatus.vim
+source ~/.vim/bundle/vim-neatstatus/after/plugin/neatstatus.vim
