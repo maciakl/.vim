@@ -2,7 +2,7 @@
 " Luke Maciak (2013)
 " Vim 7.3 recommended.
 
-"============= Runtime Stuff =============
+"============= Runtime Stuff ==================================================
 " probably not necessary, but...
 set nocompatible
 
@@ -56,7 +56,7 @@ else
 
 endif
 
-"============= GUI Options ============= 
+"============= GUI Options ====================================================
 " These affect GVim, not console Vim
 " I don't like having a separate .gvimrc because of maintenance and
 " compatibility issues so GUI settings are specified right in .vimrc
@@ -71,7 +71,7 @@ if has('gui_running')
     set lines=45 columns=160
 endif
 
-"============= Key Mappings ============= 
+"============= Key Mappings ===================================================
 
 " press ; to issue commands in normal mode (no more shift holding)
 nnoremap ; :
@@ -160,7 +160,7 @@ vnoremap / /\v
 " Remap gm to skip to the actual middle of the line, not middle of screen
 noremap gm :call cursor(0, virtcol('$')/2)<CR>
 
-"============= Buffers =============
+"============= Buffers ========================================================
 
 " buffers can exist in background without being in a window
 set hidden
@@ -181,8 +181,8 @@ nnoremap <Up> :Unite buffer -buffer-name=Buffers<CR>
 " jump to previous buffer
 " nnoremap <Down> <C-^>
 
-" Tab to cycle through buffers
-nnoremap <Tab> :bnext<CR>
+" jump to previous buffer
+nnoremap <Tab> <C-^>
 
 " Use Ctrl-Tab to toggle between splits
 nnoremap <C-Tab> <C-W><C-W>
@@ -190,7 +190,7 @@ nnoremap <C-Tab> <C-W><C-W>
 " Open Unite file browser in search/narrow mode
 nnoremap <Down> :Unite file -start-insert -buffer-name=Files<CR>
 
-"============= Editing Vimrc =============
+"============= Editing Vimrc ==================================================
 
 " open my vimrc in a split
 command! VIMRC :e $HOME/.vim/.vimrc
@@ -198,7 +198,7 @@ command! VIMRC :e $HOME/.vim/.vimrc
 " now source it
 command! SOURCE source $MYVIMRC
 
-"============ Saving and Closing ============
+"============ Saving and Closing ==============================================
 
 " for when you mess up and hold shift too long (using ! to prevent errors while 
 " sourcing vimrc after it was updated)
@@ -208,9 +208,9 @@ command! Wq wq
 command! Q q
 
 " changing file types:
-command! DOS set ff=dos 	" force windows style line endings
-command! UNIX set ff=unix 	" force unix style line endings
-command! MAC set ff=mac 	" force mac style line endings
+command! DOS  set ff=dos  " force windows style line endings
+command! UNIX set ff=unix " force unix style line endings
+command! MAC  set ff=mac  " force mac style line endings
 
 " This will display the path of the current file in the status line
 " It will also copy the path to the unnamed register so it can be pasted
@@ -222,7 +222,7 @@ function! g:getFilePath()
     echom "Current file:" expand("%:p")
 endfunc
 
-"============= Session Handling =============
+"============= Session Handling ===============================================
 
 " where do you want to save sessions?
 let g:session_dir = $HOME."/.vimsessions"
@@ -277,7 +277,7 @@ function! OpenSession()
     endif
 endfunc
 
-"============ Snipmate ==========
+"============ Snipmate ========================================================
 
 " Open or create a custom SnipMate snippet file for the current file type
 " I use this to quickly add snippets from currently edited files
@@ -287,12 +287,12 @@ function! g:editSnipmateFile()
     :exec "edit ".p
 endfunc
 
-"============= Spell Check =============
+"============= Spell Check ====================================================
 
 set spell 		"enable in-line spell check
 set spelllang=en
 
-"============= Line Numbers =============
+"============= Line Numbers ===================================================
 
 " Line numbers (set relative in 7.3 because it's useful); 
 " Fall back to absolute if 7.2 and lower
@@ -317,7 +317,7 @@ endfunc
 " map the above function to F5
 nnoremap <f5> :call g:ToggleNuMode()<cr>
 
-"============= Scrolling & Position Tweaks =============
+"============= Scrolling & Position Tweaks ====================================
 
 " show line and column markers
 set cursorline
@@ -334,7 +334,7 @@ set scrolloff=3	" 3 line offset when scrolling
 " turn off the *FUCKING* cursor blink
 set guicursor=a:blinkon0
 
-"============= Formatting, Indentation & Behavior =============
+"============= Formatting, Indentation & Behavior =============================
 
 " enable soft word wrap
 set formatoptions=l
@@ -354,7 +354,7 @@ set backspace=indent,eol,start
 
 au FocusLost * silent! :wa	" save when switching focus 
 
-"============= Search & Matching =============
+"============= Search & Matching ==============================================
 
 set showcmd			" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
@@ -367,7 +367,7 @@ set hlsearch		" highlights searches
 set noerrorbells 	" suppress audible bell
 set novisualbell 	" suppress bell blink
 
-"============= History =============
+"============= History ========================================================
 
 " save more in undo history
 set history=1000000
@@ -379,7 +379,7 @@ if v:version >= 703
 endif
 
 
-"=========== Syntax Highlighting & Indents ==============
+"=========== Syntax Highlighting & Indents ====================================
 syntax on
 filetype on
 filetype indent on
@@ -392,12 +392,12 @@ set smartindent
 
 set backspace=indent,eol,start 	" backspace over everything in insert mode
 
-" ============== Status Line ==============
+" ============== Status Line ==================================================
 
 set ls=2 			" Always show status line
 set laststatus=2
 
-"============== Folding ==============
+"============== Folding =======================================================
 
 set nofoldenable 	" screw folding
 
@@ -406,7 +406,7 @@ set nofoldenable 	" screw folding
 "set foldnestmax=3
 "set foldenable
 
-"============== Completion ==============
+"============== Completion ====================================================
 
 " Enable wild menu, but ignore nonsensical files
 set wildmenu
@@ -424,25 +424,35 @@ set wildignore+=*/.nx/**,*.app
 set completeopt=longest,menuone
 set ofu=syntaxcomplete#Complete
 
-"============== Swap Files ==============
+"============== Swap Files ====================================================
 
 set noswapfile 		" suppress creation of swap files
 set nobackup 		" suppress creation of backup files
 set nowb 			" suppress creation of ~ files
 
-"============== Filetypes ==============
+"============== Filetypes =====================================================
+
+" Ruby as per Ruby Style Guide (https://github.com/bbatsov/ruby-style-guide)
+" Use 2 spaces for indentation, utf-8 and unix line endings
+au FileType ruby setlocal shiftwidth=2 softtabstop=2 tabstop=2 enc=utf-8 ff=unix
+
+" Python as per PEP 8 (http://www.python.org/dev/peps/pep-0008/)
+" Use 4 spaces for indentation and lantin1 as encoding
+au FileType python setlocal shiftwidth=4 softtabstop=4 tabstop=4 enc=latin1
+
+" PHP as per PSR-1
+" Use 4 spaces for indentation, utf-8 with no BOM and unix line endings
+au FileType php setlocal shiftwidth=4 softtabstop=4 tabstop=4 nobomb enc=utf-8 ff=unix
+
 
 " type detection for JSON files (makes snippets work)
 au! BufRead,BufNewFile *.json set filetype=json 
 
-" force txt files to be highlighted as html
+" force txt files to be highlighted as html (useful when composing blog posts)
 au BufRead,BufNewFile *.txt setfiletype html
 
 " Fix HTML indenting quirk as per http://bit.ly/XnlHJz
 autocmd FileType html setlocal indentkeys-=*<Return>
-
-" force php files to be treated as php/html - necessary for snipmate to work
-"au BufRead,BufNewFile *.php set filetype=php.html
 
 " Grep will sometimes skip displaying the file name if you
 " search in a singe file. This will confuse Latex-Suite. Set your grep
@@ -454,7 +464,7 @@ set grepprg=grep\ -nH\ $*
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
 
-"============== Pathogen ==============
+"============== Pathogen ======================================================
 " Plugin manager:
 " Lets you store your plugins in individual folders
 " inside the .vim/bundle directory (also as git submodules).
@@ -462,9 +472,9 @@ let g:tex_flavor='latex'
 call pathogen#infect()
 
 
-"======================================================
-"============== Plugin Specific Settings ==============
-"======================================================
+"==============================================================================
+"============== Plugin Specific Settings ======================================
+"==============================================================================
 
 " Must be specified after pathogen#infect call to take
 " effect. These modify plugin behavior.
@@ -529,9 +539,9 @@ nnoremap <C-P> :call PhpDoc()<CR>
 au Filetype php set comments=sr:/**,m:*\ ,ex:*/,://
 
 
-" ==================
+" =============================================================================
 " OBVIOUS-MODE FIXES
-" ==================
+" =============================================================================
 " for some reason obvious-mode color values were wrong for the latest version
 " of Solarized theme so this fixes the issue and makes obvious-mode behave as
 " it should (ie colorizes the background and not the foreground).
@@ -541,15 +551,18 @@ let g:obviousModeModifiedCurrentHi = 'term=reverse ctermfg=30 guifg=darkcyan'
 let g:obviousModeModifiedNonCurrentHi = 'term=reverse ctermfg=30 guifg=darkcyan'
 let g:obviousModeModifiedVertSplitHi = 'term=reverse ctermbg=22 ctermfg=30 guibg=darkblue guifg=darkcyan'
 
-" =====================
+" =============================================================================
 " UNITE CUSTOM SETTINGS
-" =====================
+" =============================================================================
 " These affect only the Unite minibuffer on top of the window
 
 " Enable unite to access history/yanks
 let g:unite_source_history_yank_enable = 1
+
+" Open unite window on bottom instead of on top
 let g:unite_split_rule = "botright"
 
+" Set up key bindings local to the Unite buffer
 autocmd FileType unite call s:unite_settings()
 function! s:unite_settings()
 
@@ -568,9 +581,9 @@ function! s:unite_settings()
 endfunc
 
 
-" ====================
+" =============================================================================
 " VIM-NEATSTATUS FIXES
-" ====================
+" =============================================================================
 " For some reason sourcing VIMRC screws up the status line so here we re-source
 " it to get the hilights right.
 source ~/.vim/bundle/vim-neatstatus/after/plugin/neatstatus.vim
