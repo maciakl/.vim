@@ -579,11 +579,3 @@ function! s:unite_settings()
     " Use jj to exit insert mode (we remapped Esc so this is needed)
     imap <buffer> jj <Plug>(unite_insert_leave)
 endfunc
-
-
-" =============================================================================
-" VIM-NEATSTATUS FIXES
-" =============================================================================
-" For some reason sourcing VIMRC screws up the status line so here we re-source
-" it to get the hilights right.
-source ~/.vim/bundle/vim-neatstatus/after/plugin/neatstatus.vim
