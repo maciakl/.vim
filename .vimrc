@@ -19,8 +19,13 @@ if v:version >= 703
     set cryptmethod=blowfish
 endif
 
-" windows stuff (ignore on Linux)
+"============= System Specific Settings =======================================
+
 if has('win32')
+    " #############################
+    " ########## WINDOWS ########## 
+    " #############################
+
     " Use Consolas font, size 13
     set gfn=Consolas:h12:cANSI
 
@@ -37,6 +42,10 @@ if has('win32')
 
 " options for Mac only
 elseif has('mac')
+    " #############################
+    " ##########  APPLE  ########## 
+    " #############################
+
     " Use Monaco font, size 13
     set gfn=Monaco:h12	
 
@@ -44,14 +53,27 @@ elseif has('mac')
     set nobomb
 
 " options for every other system
-else
+else   
+    " #############################
+    " ##########  LINUX  ########## 
+    " #############################
+
     " use Inconsolata, size 10 everywhere else 
     set gfn=Inconsolata\ Medium\ 10
 
-    " Change the cursor shape in Gnome Terminal based on the mode
     if !has("gui_running")
-      au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Solarized/cursor_shape ibeam"
-      au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Solarized/cursor_shape block"
+        " Change the cursor shape in Gnome Terminal based on the mode
+        au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Solarized/cursor_shape ibeam"
+        au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Solarized/cursor_shape block"
+
+        " Try changing the mode in non-GnomeTerm consoles (including Tmux)
+        if exists('$TMUX')
+            let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+            let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+        else
+            let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+            let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+        endif
     endif
 
 endif
@@ -443,6 +465,7 @@ au FileType python setlocal shiftwidth=4 softtabstop=4 tabstop=4 enc=latin1
 " PHP as per PSR-1
 " Use 4 spaces for indentation, utf-8 with no BOM and unix line endings
 au FileType php setlocal shiftwidth=4 softtabstop=4 tabstop=4 nobomb enc=utf-8 ff=unix
+au Filetype php setlocal comments=sr:/**,m:*\ ,ex:*/,://
 
 
 " type detection for JSON files (makes snippets work)
@@ -453,11 +476,6 @@ au BufRead,BufNewFile *.txt setfiletype html
 
 " Fix HTML indenting quirk as per http://bit.ly/XnlHJz
 autocmd FileType html setlocal indentkeys-=*<Return>
-
-" Grep will sometimes skip displaying the file name if you
-" search in a singe file. This will confuse Latex-Suite. Set your grep
-" program to always generate a file-name.
-set grepprg=grep\ -nH\ $*
 
 " Starting with Vim 7, the filetype of empty .tex files defaults to
 " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
@@ -489,15 +507,6 @@ else
     let g:solarized_termcolors=256      " use solarized 256 fallback
     set background=light                " change this if you want dark scheme
 
-    " Tell vim to change the shape of the cursor based on mode
-    " only works in some terminals (won't work over ssh usually)
-    if exists('$TMUX')
-        let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-        let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-    else
-        let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-        let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-    endif
 endif
 
 " enable solarized color scheme
@@ -535,8 +544,6 @@ nnoremap <F7> :GundoToggle<CR>
 
 " bind the PHPDoc command to C-P only for php files
 nnoremap <C-P> :call PhpDoc()<CR> 
-" fixing comment style for PHP (this got changed somewhere)
-au Filetype php set comments=sr:/**,m:*\ ,ex:*/,://
 
 
 " =============================================================================
