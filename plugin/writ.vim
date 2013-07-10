@@ -15,20 +15,20 @@ function! WritToggle()
         let s:writ = 1
         setlocal nonumber
         setlocal norelativenumber
-        set foldcolumn=10
-        set columns=100
+        set foldcolumn=5
+        set columns=85
 
-        setlocal formatoptions=ant
+        "setlocal formatoptions=ant
         setlocal textwidth=80
         setlocal wrapmargin=0
 
-        setlocal noautoindent
-        setlocal nocindent
-        setlocal nosmartindent
-        setlocal indentexpr=
+        "setlocal noautoindent
+        "setlocal nocindent
+        "setlocal nosmartindent
+        "setlocal indentexpr=
 
-        let &guifont=substitute(&guifont, ':h\zs\d\+', '\=submatch(0)+1', '')
-        normal gggqG
-        write
+        "let &guifont=substitute(&guifont, ':h\zs\d\+', '\=submatch(0)+1', '')
+        "normal gggqG
+        "write
     endif
 endfunc
