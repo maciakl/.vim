@@ -52,3 +52,6 @@
 [submodule "bundle/unite.vim"]
 	path = bundle/unite.vim
 	url = https://github.com/Shougo/unite.vim.git
+[submodule "bundle/markdown-vim-mode"]
+	path = bundle/markdown-vim-mode
+	url = git@github.com:plasticboy/vim-markdown.git
