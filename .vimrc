@@ -103,8 +103,8 @@ nnoremap j gj
 nnoremap k gk
 
 " also in visual mode
-vnoremap j gj
-vnoremap k gk
+xnoremap j gj
+xnoremap k gk
 
 " optionally make arrows work in visual mode
 "vnoremap <up> gk
@@ -116,14 +116,14 @@ inoremap <up> <C-O>gk
 inoremap <down> <C-O>gj
 
 " insert current date on F10 - useful for dated logs or journals
-:nnoremap <F10> "=strftime("%a %b %d, %Y")<CR>P
-:inoremap <F10> <C-R>=strftime("%a %b %d, %Y")<CR>
+nnoremap <F10> "=strftime("%a %b %d, %Y")<CR>P
+inoremap <F10> <C-R>=strftime("%a %b %d, %Y")<CR>
 
 " run ctags on current directory recursively
 nnoremap <f6> :!ctags -R<cr>
 
 " pressing <leader><space> clears the search highlights
-nmap <silent> <leader><space> :nohlsearch<CR> 
+nmap <silent> <leader><space> :nohlsearch<CR>
 
 " break a line at cursor without exiting normal mode
 nnoremap <silent> <leader><CR> i<CR><ESC>
@@ -155,8 +155,6 @@ noremap <C-l> [sz=
 
 " use Ctrl+L in insert mode to correct last misspelled word
 inoremap <C-l> <esc>[sz=
-" jump back to last insert point
-noremap <C-i> gi
 
 " Ctrl+Backspace deletes last word
 inoremap <C-BS> <esc>bcw
@@ -172,12 +170,12 @@ nnoremap <silent> <leader>h1 YpVr=
 nnoremap <silent> <leader>h2 YpVr-
 
 " reselect visual block after indent/outdent
-vnoremap < <gv
-vnoremap > >gv
+xnoremap < <gv
+xnoremap > >gv
 
 " use regular regex syntax rather than vim regex
 nnoremap / /\v
-vnoremap / /\v
+xnoremap / /\v
 
 " Remap gm to skip to the actual middle of the line, not middle of screen
 noremap gm :call cursor(0, virtcol('$')/2)<CR>
@@ -306,7 +304,7 @@ endfunc
 command! SNIP call g:editSnipmateFile()
 function! g:editSnipmateFile()
     let p=$HOME."/.vim/bundle/snipmate-custom-snippets/snippets/".&ft.".snippets"
-    :exec "edit ".p
+    exec "edit ".p
 endfunc
 
 "============= Spell Check ====================================================
@@ -546,7 +544,7 @@ endif
 nnoremap <F7> :GundoToggle<CR>
 
 " bind the PHPDoc command to C-P only for php files
-nnoremap <C-P> :call PhpDoc()<CR> 
+nnoremap <C-P> :call PhpDoc()<CR>
 
 
 " =============================================================================
