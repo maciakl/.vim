@@ -317,29 +317,30 @@ set spelllang=en
 " Line numbers (set relative in 7.3 because it's useful); 
 " Fall back to absolute if 7.2 and lower
 if v:version >= 703
-    set rnu 	" if version 7.3 set relative line numbers
+    set relativenumber 	" if version 7.3 set relative line numbers
+
+    " toggle between relative and absolute line numbers
+    " this will only be defined if vim supports it
+    function! g:ToggleNuMode()
+        if(&rnu == 1)
+            set number
+        else
+            set relativenumber
+        endif
+    endfunc
+
+    " map the above function to F5
+    nnoremap <f5> :call g:ToggleNuMode()<cr>
+
 else
-    set nu		" otherwise set absolute, because there is no rnu
+    set number		" otherwise set absolute, because there is no rnu
 endif
 
-set cul		" highlight cursor line 
 set nopaste	" pasting with auto-indent disabled (breaks bindings in cli vim)
-
-" toggle between relative and absolute line numbers
-function! g:ToggleNuMode()
-    if(&rnu == 1)
-        set nu
-    else
-        set rnu
-    endif
-endfunc
-
-" map the above function to F5
-nnoremap <f5> :call g:ToggleNuMode()<cr>
 
 "============= Scrolling & Position Tweaks ====================================
 
-" show line and column markers
+" hilight cursor line and cursor column markers
 set cursorline
 set cursorcolumn
 
