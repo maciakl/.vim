@@ -4,6 +4,36 @@ My Personal Vim Settings
 This is my personal git directory, under source control ready to be deployed
 across across all platforms.
 
+Sessions
+--------
+
+Sessions are automatically saved to `~/.vim/session` and you will be asked if 
+you want to restore from an existing session if you open vim without a file
+argument. Session names are created based on the `--servername` argument. The
+default for gvim is `GVIM`. If you want to create a unique session you can do:
+
+    :Ses sessionname
+
+Then launch vim with that session name to restore:
+
+    gvim --servername sessioname
+
+Note that sessions preserve environment. If you updated `.vimrc` or plugins you
+will need to manually source them after launching. If your session just got 
+weird, you can blow away everything other than the buffer list by setting:
+
+   :set sessionoptions=buffers,args
+
+Then quit and re-launch to clean environment with the buffer list and arglist
+intact.
+
+Persistent Undo
+---------------
+
+Persistent undo is enabled if you are running 7.3 or above. All the undo files
+are saved to `~/.vim/undo`. This directory may get somewhat large if you don't
+blow it away every once in a while so watch for that.
+
 Plugis
 ---
 
