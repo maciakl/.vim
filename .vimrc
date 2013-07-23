@@ -245,7 +245,7 @@ endfunc
 "============= Session Handling ===============================================
 
 " where do you want to save sessions?
-let g:session_dir = $HOME."/.vimsessions"
+let g:session_dir = $HOME."/.vim/session"
 
 " set session name using Ses command
 command! -nargs=1 Ses let g:sessionname=<f-args>
@@ -396,7 +396,7 @@ set undolevels=1000000
 
 if v:version >= 703
     set undofile        " keep a persistent backup file
-    set undodir=$TEMP
+    set undodir=$HOME/.vim/undo
 endif
 
 
