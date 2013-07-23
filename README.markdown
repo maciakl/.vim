@@ -27,6 +27,7 @@ These are the custom plugins I use:
 * [Vim-matchit](https://github.com/edsono/vim-matchit) - skip to closing HTML tag with `%`
 * [Vim-neatstatus](https://github.com/maciakl/vim-neatstatus) - simple status line with colors
 * [Vim-surround](https://github.com/tpope/vim-surround) - bindings to easily surround text with stuff
+* [Vim-Markdown](https://github.com/plasticboy/vim-markdown) - syntax highlighting and matching rules for Markdown.
 
 Custom Key Bindings
 ---
@@ -117,9 +118,21 @@ You may also need these:
 
 - [Python 2.7](http://www.python.org/getit/releases/2.7/)
 - [Exuberant Ctags](http://ctags.sourceforge.net/) 
+
+You could probably use unix ctags, but they don't have all the features.
+
+####CTAGS Ain't Hard!
+
+On debians and buntus of all shapes and sizes:
+
+    sudo apt-get install exuberant-ctags
      
-     - On windows download `ctags.exe` and put somewhere in your path
-     - On a mac use [Homebrew](http://mxcl.github.com/homebrew/) to install the package ctags. Then add this to `.basrc` or `.profile`:
+On windows download `ctags.exe` from the link above and put somewhere in your path.
+
+Mac is a little trickier:
+
+- Use [Homebrew](http://mxcl.github.com/homebrew/) to install the package ctags. 
+    
+Then add this to `.basrc` or `.profile`:
 
     alias ctags="`brew --prefix`/bin/ctags"
-
