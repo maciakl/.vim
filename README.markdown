@@ -52,12 +52,13 @@ These are the custom plugins I use:
 * [Vim-Align](https://github.com/tsaleh/vim-align) - auto-align code chunks (like Tabular)
 * [Vim-AutoClose](https://github.com/Townk/vim-autoclose) - auto close parens and brackets
 * [Vim-Fugitive](https://github.com/tpope/vim-fugitive) - git integration
+* [Vim-Markdown](https://github.com/plasticboy/vim-markdown) - syntax highlighting and matching rules for Markdown.
 * [Vim-SuperTab](https://github.com/tsaleh/vim-supertab) - super-charge the tab key
 * [Vim-indent-object](https://github.com/michaeljsmith/vim-indent-object) - text object for Python indent block
 * [Vim-matchit](https://github.com/edsono/vim-matchit) - skip to closing HTML tag with `%`
 * [Vim-neatstatus](https://github.com/maciakl/vim-neatstatus) - simple status line with colors
+* [Vim-signature](https://github.com/kshenoy/vim-signature) - easy navigation with marks (displays in gutter)
 * [Vim-surround](https://github.com/tpope/vim-surround) - bindings to easily surround text with stuff
-* [Vim-Markdown](https://github.com/plasticboy/vim-markdown) - syntax highlighting and matching rules for Markdown.
 * [ZenCoding](https://github.com/mattn/zencoding-vim) - automated expansion for html and css
 
 Custom Key Bindings
@@ -74,14 +75,15 @@ The `<leader>` key is bound to `,`.
 * `<C-Tab>`                     -  toggle between splits
 * `<C-_>`                       -  close html tag
 * `<Down>`                      -  search current directory for files with Unite
+* `<F10>`                       -  insert current date at cursor
 * `<F1>`                        -  toggle NERDTree file browser
 * `<F2>`                        -  toggle Tag List buffer
 * `<F3>`                        -  toggle paste mode
 * `<F5>`                        -  toggle relative and absolute line numbering
 * `<F6>`                        -  run `ctags` on project
 * `<F7>`                        -  toggle Gundo undo browser
-* `<F10>`                       -  insert current date at cursor
 * `<Left>` and `<Right>`        -  browse through buffers
+* `<S-Tab>`                     -  Auto expand and/or jump when using ZenCoding plugin
 * `<Tab>`                       -  next buffer
 * `<Up>`                        -  search/display open buffers with Unite
 * `<leader><cr>`                -  break line at cursor (normal mode)
@@ -90,7 +92,7 @@ The `<leader>` key is bound to `,`.
 * `<leader>o`                   -  insert a blank line (normal mode) (also works with `<leader>O`)
 * `<leader>y` and `<leader>p`   -  copy and paste using system clipboard (also `Y` and `P`)
 * `jj`                          -  bound to `<Esc>`
-* `<S-Tab>`                     - Auto expand and/or jump when using ZenCoding plugin
+* `m<space>`                    -  delete all marks in the document
 
 
 Custom Commands
