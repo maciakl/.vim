@@ -34,7 +34,7 @@ Persistent undo is enabled if you are running 7.3 or above. All the undo files
 are saved to `~/.vim/undo`. This directory may get somewhat large if you don't
 blow it away every once in a while so watch for that.
 
-Plugis
+Plugins
 ---
 
 These are the custom plugins I use:
@@ -58,6 +58,7 @@ These are the custom plugins I use:
 * [Vim-neatstatus](https://github.com/maciakl/vim-neatstatus) - simple status line with colors
 * [Vim-surround](https://github.com/tpope/vim-surround) - bindings to easily surround text with stuff
 * [Vim-Markdown](https://github.com/plasticboy/vim-markdown) - syntax highlighting and matching rules for Markdown.
+* [ZenCoding](https://github.com/mattn/zencoding-vim) - automated expansion for html and css
 
 Custom Key Bindings
 ---
@@ -89,6 +90,7 @@ The `<leader>` key is bound to `,`.
 * `<leader>o`                   -  insert a blank line (normal mode) (also works with `<leader>O`)
 * `<leader>y` and `<leader>p`   -  copy and paste using system clipboard (also `Y` and `P`)
 * `jj`                          -  bound to `<Esc>`
+* `<S-Tab>`                     - Auto expand and/or jump when using ZenCoding plugin
 
 
 Custom Commands

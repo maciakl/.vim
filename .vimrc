@@ -553,6 +553,27 @@ nnoremap <F7> :GundoToggle<CR>
 " bind the PHPDoc command to C-P only for php files
 nnoremap <C-P> :call PhpDoc()<CR>
 
+" =============================================================================
+" ZEN CODING BINDINGS
+" =============================================================================
+" This forces the zen-coding to use Shift-Tab both to expand and to jump to 
+" the next tag. Note that default bindings are <c-y>, and <c-y>n which is not
+" that convinient. The function was originally created by Bailey Ling:
+" http://bling.github.io/blog/2013/07/21/smart-tab-expansions-in-vim-with-expression-mappings/
+
+" script scoped function (use <sid> to call
+" if there is no opening bracked it returns the expand binding, otherwise
+" it returns the jump binding
+function! s:zen_html_tab()
+    let line = getline('.')
+    if match(line, '<.*>') >= 0
+        return "\<c-y>n"
+    endif
+    return "\<c-y>,"
+endfunction
+
+" enable the binding in html and eruby files
+autocmd FileType html,eruby imap <buffer><expr><s-tab> <sid>zen_html_tab()
 
 " =============================================================================
 " OBVIOUS-MODE FIXES
