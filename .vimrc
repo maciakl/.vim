@@ -44,7 +44,9 @@ if has('win32')
     "       putty.exe" -cygterm -
     "
     " See http://www.terminally-incoherent.com/blog/2012/09/24/using-vim-and-cygwin/ 
-    
+    " 
+    " These lines will make vim launch shell escape processes in PuttyCyg 
+    " terminal using Cygwin:
     set shellxquote=
     set shellpipe=2>&1\|tee
     set shellredir=>%s\ 2>&1
@@ -119,15 +121,6 @@ nnoremap k gk
 " also in visual mode
 xnoremap j gj
 xnoremap k gk
-
-" optionally make arrows work in visual mode
-"vnoremap <up> gk
-"vnoremap <down> gj
-
-" make up and down arrows work in insert mode
-" c-o jumps to normal mode for one command
-inoremap <up> <C-O>gk
-inoremap <down> <C-O>gj
 
 " insert current date on F10 - useful for dated logs or journals
 nnoremap <F10> "=strftime("%a %b %d, %Y")<CR>P
@@ -575,7 +568,7 @@ nnoremap <C-P> :call PhpDoc()<CR>
 " that convinient. The function was originally created by Bailey Ling:
 " http://bling.github.io/blog/2013/07/21/smart-tab-expansions-in-vim-with-expression-mappings/
 
-" script scoped function (use <sid> to call
+" script scoped function (use <sid> to call)
 " if there is no opening bracked it returns the expand binding, otherwise
 " it returns the jump binding
 function! s:zen_html_tab()
@@ -630,6 +623,7 @@ function! s:unite_settings()
     imap <buffer> jj <Plug>(unite_insert_leave)
 endfunc
 
+"==============================================================================
 " For some reason I can't seem to be able to map <nop> to the arrow keys
 " (probably due to some plugin) so instead we just re-center screen on
 " cursor which produces a punitive jolt but nothing else
