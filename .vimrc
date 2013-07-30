@@ -615,3 +615,11 @@ function! s:unite_settings()
     " Use jj to exit insert mode (we remapped Esc so this is needed)
     imap <buffer> jj <Plug>(unite_insert_leave)
 endfunc
+
+" For some reason I can't seem to be able to map <nop> to the arrow keys
+" (probably due to some plugin) so instead we just re-center screen on
+" cursor which produces a punitive jolt but nothing else
+inoremap <Up> <C-o>zz
+inoremap <Down> <C-o>zz
+inoremap <Left> <C-o>zz
+inoremap <Right> <C-o>zz
