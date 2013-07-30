@@ -29,8 +29,22 @@ if has('win32')
     " Use Consolas font, size 13
     set gfn=Consolas:h12:cANSI
 
-    " make Cygwin the default shell on windows
-    " this ensures that escaping to shell works as expected
+    " Make Cygwin the default shell on windows. This requires additional 
+    " explanations below:
+    "
+    "   I'm using:
+    "       - PuttyCyg: http://code.google.com/p/puttycyg/
+    "       - VimShell: http://code.google.com/p/vimshell/
+    "
+    "   Drop vimrun.exe into $VIMRUNTIME directory
+    "   Create shell.txt in $VIMRUNTIME with following contents:
+    "
+    "       putty.exe" -cygterm "bash -i '#F;read;#'"
+    "       putty.exe" -cygterm "bash '#F#'"
+    "       putty.exe" -cygterm -
+    "
+    " See http://www.terminally-incoherent.com/blog/2012/09/24/using-vim-and-cygwin/ 
+    
     set shellxquote=
     set shellpipe=2>&1\|tee
     set shellredir=>%s\ 2>&1
