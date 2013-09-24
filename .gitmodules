@@ -55,9 +55,6 @@
 [submodule "bundle/markdown-vim-mode"]
 	path = bundle/markdown-vim-mode
 	url = https://github.com/plasticboy/vim-markdown.git 
-[submodule "bundle/zencoding-vim"]
-	path = bundle/zencoding-vim
-	url = https://github.com/mattn/zencoding-vim.git
 [submodule "bundle/vim-signature"]
 	path = bundle/vim-signature
 	url = https://github.com/kshenoy/vim-signature.git
