@@ -9,9 +9,9 @@ set nocompatible
 " Enable mouse usage (all modes) in terminals
 set mouse=a
 
-" change the leader key to , (comma)
-" while the default \ is nice, comma is faster
-let mapleader=","
+" Change the leader key to <space>
+nnoremap <space> <nop>
+let mapleader="\<space>"
 
 " use blowfish encryption (stronger than standard)
 " Why? Just because. Only in recent versions
