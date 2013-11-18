@@ -40,10 +40,11 @@ Plugins
 These are the custom plugins I use:
 
 * [Closetag.vim](https://github.com/vim-scripts/closetag.vim) - use `<c-_>` close HTML tags
+* [Emmet.vim](https://github.com/mattn/emmet-vim) - automated expansion for html and css
 * [Gundo](https://github.com/sjl/gundo.vim) - browse the undo tree in the sidebar
 * [NERDcommenter](https://github.com/scrooloose/nerdcommenter) - auto-commenting
 * [NERDtree](https://github.com/scrooloose/nerdtree) - file browser plugin
-* [ObfiousMode](https://github.com/bsl/obviousmode) - change color of sidebar depending on mode
+* [ObviousMode](https://github.com/bsl/obviousmode) - change color of sidebar depending on mode
 * [PHPDocumentator](https://github.com/vim-scripts/PDV--phpDocumentor-for-Vim) - generate PHPDoc comments
 * [SnipMate](https://github.com/msanders/snipmate.vim) - auto-complete code snippets
 * [Tabular](https://github.com/godlygeek/tabular) - auto-align code chunks
@@ -59,12 +60,11 @@ These are the custom plugins I use:
 * [Vim-neatstatus](https://github.com/maciakl/vim-neatstatus) - simple status line with colors
 * [Vim-signature](https://github.com/kshenoy/vim-signature) - easy navigation with marks (displays in gutter)
 * [Vim-surround](https://github.com/tpope/vim-surround) - bindings to easily surround text with stuff
-* [ZenCoding](https://github.com/mattn/zencoding-vim) - automated expansion for html and css
 
 Custom Key Bindings
 ---
 
-The `<leader>` key is bound to `,`.
+The `<leader>` key is bound to `<space>` because space is cool.
 
 * `+` and `-`                   -  increment and decrement number under cursor
 * `<C-BS>`                      -  ctrl+backspace deletes last word
@@ -87,7 +87,7 @@ The `<leader>` key is bound to `,`.
 * `<Tab>`                       -  next buffer
 * `<Up>`                        -  search/display open buffers with Unite
 * `<leader><cr>`                -  break line at cursor (normal mode)
-* `<leader><space>`             -  clear search highlights
+* `<leader><space>`             -  clear search highlights (double tap `<space>`)
 * `<leader>h1` and `<leader>h2` -  markdown headings
 * `<leader>o`                   -  insert a blank line (normal mode) (also works with `<leader>O`)
 * `<leader>y` and `<leader>p`   -  copy and paste using system clipboard (also `Y` and `P`)
@@ -98,7 +98,7 @@ The `<leader>` key is bound to `,`.
 Custom Commands
 ---
 
-* `:VIMRC`    -  open .vimrc in current windoe
+* `:VIMRC`    -  open .vimrc in current windows
 * `:SOURCE`   -  source .vimrc
 * `:DOS`      -  set file format to dos
 * `:UNIX`     -  set file format to unix
