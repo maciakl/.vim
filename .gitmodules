@@ -61,3 +61,6 @@
 [submodule "bundle/emmet-vim"]
 	path = bundle/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
+[submodule "bundle/powershell"]
+	path = bundle/powershell
+	url = https://github.com/PProvost/vim-ps1.git

@@ -26,8 +26,8 @@ if has('win32')
     " ########## WINDOWS ########## 
     " #############################
 
-    " Use Consolas font, size 13
-    set gfn=Consolas:h12:cANSI
+    " Use Consolas font, size 11
+    set gfn=Consolas:h11:cANSI
 
     " Make Cygwin the default shell on windows. This requires additional 
     " explanations below:
