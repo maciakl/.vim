@@ -47,10 +47,15 @@ if has('win32')
     " 
     " These lines will make vim launch shell escape processes in PuttyCyg 
     " terminal using Cygwin:
-    set shellxquote=
-    set shellpipe=2>&1\|tee
-    set shellredir=>%s\ 2>&1
-    set shellslash
+    "
+        "set shellxquote=
+        "set shellpipe=2>&1\|tee
+        "set shellredir=>%s\ 2>&1
+        "set shellslash
+
+    " Use Powershell as the default shell on windows:
+    set shell=powershell
+    set shellcmdflag=-command
 
     " Fix Ruby path to ensure things are working
     " this may need to be changed on your system
