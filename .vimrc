@@ -173,10 +173,6 @@ inoremap <C-Del> <esc>wcw
 " repeated C-r pastes in the contents of the unnamed register
 inoremap <C-r><C-r> <C-r>"
 
-" Markdown bindings: make headers
-nnoremap <silent> <leader>h1 YpVr=
-nnoremap <silent> <leader>h2 YpVr-
-
 " reselect visual block after indent/outdent
 xnoremap < <gv
 xnoremap > >gv
@@ -464,19 +460,7 @@ set nowb 			" suppress creation of ~ files
 
 "============== Filetypes =====================================================
 
-" Ruby as per Ruby Style Guide (https://github.com/bbatsov/ruby-style-guide)
-" Use 2 spaces for indentation, utf-8 and unix line endings
-au FileType ruby setlocal shiftwidth=2 softtabstop=2 tabstop=2 enc=utf-8 ff=unix
-
-" Python as per PEP 8 (http://www.python.org/dev/peps/pep-0008/)
-" Use 4 spaces for indentation and lantin1 as encoding
-au FileType python setlocal shiftwidth=4 softtabstop=4 tabstop=4 enc=latin1
-
-" PHP as per PSR-1
-" Use 4 spaces for indentation, utf-8 with no BOM and unix line endings
-au FileType php setlocal shiftwidth=4 softtabstop=4 tabstop=4 nobomb enc=utf-8 ff=unix
-au Filetype php setlocal comments=sr:/**,m:*\ ,ex:*/,://
-
+" Individual settings for php, ruby, python and etc are in ftplugin/ foldr
 
 " type detection for JSON files (makes snippets work)
 au! BufRead,BufNewFile *.json set filetype=json 
@@ -560,9 +544,6 @@ endif
 
 " key binding for the Gundo (undo preview) plugin
 nnoremap <F7> :GundoToggle<CR>
-
-" bind the PHPDoc command to C-P only for php files
-nnoremap <C-P> :call PhpDoc()<CR>
 
 " =============================================================================
 " ZEN CODING BINDINGS
