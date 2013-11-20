@@ -26,9 +26,6 @@ if has('win32')
     " ########## WINDOWS ########## 
     " #############################
 
-    " Use Consolas font, size 11
-    set gfn=Consolas:h11:cANSI
-
     " Make Cygwin the default shell on windows. This requires additional 
     " explanations below:
     "
@@ -67,9 +64,6 @@ elseif has('mac')
     " ##########  APPLE  ########## 
     " #############################
 
-    " Use Monaco font, size 13
-    set gfn=Monaco:h12	
-
     " disable the annoying Byte Order Mark that ruins shell scripts
     set nobomb
 
@@ -78,9 +72,6 @@ else
     " #############################
     " ##########  LINUX  ########## 
     " #############################
-
-    " use Inconsolata, size 10 everywhere else 
-    set gfn=Inconsolata\ Medium\ 10
 
     if !has("gui_running")
         " Change the cursor shape in Gnome Terminal based on the mode
@@ -99,11 +90,16 @@ else
 
 endif
 
-"============= GUI Options ====================================================
-" These affect GVim, not console Vim
-" I don't like having a separate .gvimrc because of maintenance and
-" compatibility issues so GUI settings are specified right in .vimrc
-" but wrapped in conditionals
+"=============  UI Options ====================================================
+
+" FONT SETTINGS for all platforms
+if has('win32')
+                    set gfn=Consolas:h11:cANSI
+elseif has('mac')
+                    set gfn=Monaco:h12	
+else   
+                    set gfn=Inconsolata\ Medium\ 10
+endif
 
 " remove unnecessary toolbars (why do they exist anyway?)
 if has('gui_running')
@@ -200,11 +196,11 @@ set hidden
 " Automatically save before commands like :next and :make
 set autowrite
 
-" buffer browsing
+" buffer browsing with left/right arrows
 nnoremap <Left> :bprev<CR>
 nnoremap <Right> :bnext<CR>
 
-" show buffer list using Unite
+" show buffer list using Unite on Up arrow
 nnoremap <Up> :Unite buffer -buffer-name=Buffers<CR>
 
 " show buffer list without Unite
@@ -213,18 +209,21 @@ nnoremap <Up> :Unite buffer -buffer-name=Buffers<CR>
 " jump to previous buffer
 " nnoremap <Down> <C-^>
 
-" jump to previous buffer
+" jump to previous buffer with Tab
 nnoremap <Tab> <C-^>
 
 " Use Ctrl-Tab to toggle between splits
 nnoremap <C-Tab> <C-W><C-W>
 
-" Open Unite file browser in search/narrow mode
+" Open Unite file browser in search mode with Down arrow
 nnoremap <Down> :Unite file -start-insert -buffer-name=Files<CR>
 
 "============= Editing Vimrc ==================================================
 
 " open my vimrc in a split
+" not using ~/.vimrc because it causes issues on windows
+" editing a soft link created with MKLINK command un-links it and creates a
+" copy which is independent. Not sure why but this is a workaround.
 command! VIMRC :e $HOME/.vim/.vimrc
 
 " now source it
