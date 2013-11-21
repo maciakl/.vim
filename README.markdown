@@ -70,7 +70,7 @@ The `<leader>` key is bound to `<space>` because space is cool.
 * `<C-BS>`                      -  ctrl+backspace deletes last word
 * `<C-Del>`                     -  ctrl+Del deletes next word
 * `<C-L>`                       -  fix last typo
-* `<C-P>`                       -  generate PHPDoc comments at cursor
+* `<C-P>`                       -  generate PHPDoc comments at cursor (defined in `ftplugin/php.vim`)
 * `<C-R>`                       -  paste in contents of the unnamed register
 * `<C-Tab>`                     -  toggle between splits
 * `<C-_>`                       -  close html tag
@@ -88,7 +88,7 @@ The `<leader>` key is bound to `<space>` because space is cool.
 * `<Up>`                        -  search/display open buffers with Unite
 * `<leader><cr>`                -  break line at cursor (normal mode)
 * `<leader><space>`             -  clear search highlights (double tap `<space>`)
-* `<leader>h1` and `<leader>h2` -  markdown headings
+* `<leader>H` and `<leader>h`   -  markdown headings (defined in `ftplugin/mkd.vim`)
 * `<leader>o`                   -  insert a blank line (normal mode) (also works with `<leader>O`)
 * `<leader>y` and `<leader>p`   -  copy and paste using system clipboard (also `Y` and `P`)
 * `jj`                          -  bound to `<Esc>`
@@ -105,6 +105,7 @@ Custom Commands
 * `:MAC`      -  set file format to mac
 * `:FILEPATH` -  display the file path in the status line
 * `:Ses`      -  set session name for current session
+* `:SPCLEAN`  -  runs cleanup routine on spell-check files
 
 Deploying
 ---

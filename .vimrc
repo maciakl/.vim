@@ -319,6 +319,8 @@ endfunc
 set spell 		"enable in-line spell check
 set spelllang=en
 
+command! SPCLEAN :runtime spell/cleanadd.vim
+
 "============= Line Numbers ===================================================
 
 " Line numbers (set relative in 7.3 because it's useful); 
