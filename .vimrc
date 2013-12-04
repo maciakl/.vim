@@ -6,6 +6,12 @@
 " probably not necessary, but...
 set nocompatible
 
+" disable beeping
+set noerrorbells
+set visualbell
+set t_vb=
+autocmd! GUIEnter * set vb t_vb=
+
 " Enable mouse usage (all modes) in terminals
 set mouse=a
 
@@ -79,13 +85,8 @@ else
         au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Solarized/cursor_shape block"
 
         " Try changing the mode in non-GnomeTerm consoles (including Tmux)
-        if exists('$TMUX')
-            let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-            let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-        else
-            let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-            let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-        endif
+        let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+        let &t_EI = "\<Esc>]50;CursorShape=0\x7"
     endif
 
 endif
