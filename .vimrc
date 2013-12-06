@@ -213,7 +213,7 @@ nnoremap <Tab> <C-^>
 nnoremap <C-Tab> <C-W><C-W>
 
 " Open Unite file browser in search mode with Down arrow
-nnoremap <Down> :Unite file -start-insert -buffer-name=Files<CR>
+nnoremap <Down> :Unite file_rec -start-insert -buffer-name=Files<CR>
 
 "============= Editing Vimrc ==================================================
 
