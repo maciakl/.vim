@@ -108,7 +108,13 @@ if has('gui_running')
     set guioptions-=m 			" disable menu bar
 
     " make the default window bigger 	
-    set lines=45 columns=160
+    if has('win32')
+        " on my win machine 45 always puts status bar off screen
+        " that's the only reason for this difference
+        set lines=35 columns=160
+    else
+        set lines=45 columns=160
+    endif
 endif
 
 "============= Key Mappings ===================================================
@@ -213,7 +219,10 @@ nnoremap <Tab> <C-^>
 nnoremap <C-Tab> <C-W><C-W>
 
 " Open Unite file browser in search mode with Down arrow
-nnoremap <Down> :Unite file_rec -start-insert -buffer-name=Files<CR>
+nnoremap <Down> :Unite file -start-insert -buffer-name=Files<CR>
+
+" Recursive file search with shift-down
+nnoremap <S-Down> :Unite file_rec -start-insert -buffer-name=FilesRec<CR>
 
 "============= Editing Vimrc ==================================================
 
