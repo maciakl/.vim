@@ -64,3 +64,9 @@
 [submodule "bundle/powershell"]
 	path = bundle/powershell
 	url = https://github.com/PProvost/vim-ps1.git
+[submodule "bundle/vim-git"]
+	path = bundle/vim-git
+	url = https://github.com/tpope/vim-git
+[submodule "bundle/vim-rails"]
+	path = bundle/vim-rails
+	url = https://github.com/tpope/vim-rails
