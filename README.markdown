@@ -53,7 +53,9 @@ These are the custom plugins I use:
 * [Vim-Align](https://github.com/tsaleh/vim-align) - auto-align code chunks (like Tabular)
 * [Vim-AutoClose](https://github.com/Townk/vim-autoclose) - auto close parens and brackets
 * [Vim-Fugitive](https://github.com/tpope/vim-fugitive) - git integration
+* [Vim-Git](https://github.com/tpope/vim-git) - runtime rules for git commit, gitignore and etc..
 * [Vim-Markdown](https://github.com/plasticboy/vim-markdown) - syntax highlighting and matching rules for Markdown.
+* [Vim-Rails](https://github.com/tpope/vim-rails) - ruby on rails integration and commands
 * [Vim-SuperTab](https://github.com/tsaleh/vim-supertab) - super-charge the tab key
 * [Vim-indent-object](https://github.com/michaeljsmith/vim-indent-object) - text object for Python indent block
 * [Vim-matchit](https://github.com/edsono/vim-matchit) - skip to closing HTML tag with `%`
