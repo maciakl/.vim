@@ -208,7 +208,7 @@ nnoremap <Left> :bprev<CR>
 nnoremap <Right> :bnext<CR>
 
 " show buffer list using Unite on Up arrow
-nnoremap <Up> :Unite buffer -buffer-name=Buffers<CR>
+nnoremap <Up> :Unite buffer -no-split -buffer-name=Buffers<CR>
 
 " show buffer list without Unite
 "nnoremap <Up> :buffers<CR>:buffer<SPACE>
@@ -223,10 +223,10 @@ nnoremap <Tab> <C-^>
 nnoremap <C-Tab> <C-W><C-W>
 
 " Open Unite file browser in search mode with Down arrow
-nnoremap <Down> :Unite file -start-insert -buffer-name=Files<CR>
+nnoremap <Down> :Unite file -no-split -start-insert -buffer-name=Files<CR>
 
 " Recursive file search with shift-down
-nnoremap <S-Down> :Unite file_rec -start-insert -buffer-name=FilesRec<CR>
+nnoremap <C-Down> :Unite file_rec -no-split -start-insert -buffer-name=FilesRec<CR>
 
 " Split windows to the right
 set splitright
