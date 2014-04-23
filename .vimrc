@@ -158,8 +158,12 @@ set showmode
 " use ,y and ,p to copy and paste from system clipboard
 noremap <leader>y "+y
 noremap <leader>Y "+Y
-noremap <leader>p "+p
-noremap <leader>P "+P
+
+" when pasting from clipboard toggle the paste feature and use the indent
+" adjusted paste ]p and ]P. This prevents breaking of alignment when pasting
+" in code from websites and etc.. 
+noremap <leader>p :set paste<cr>"+]p:set nopaste<cr>
+noremap <leader>P :set paste<cr>"+]P:set nopaste<cr>
 
 " use +/- to increment/decrement numbers
 nnoremap + <C-a>
