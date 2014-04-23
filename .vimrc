@@ -224,6 +224,9 @@ nnoremap <Down> :Unite file -start-insert -buffer-name=Files<CR>
 " Recursive file search with shift-down
 nnoremap <S-Down> :Unite file_rec -start-insert -buffer-name=FilesRec<CR>
 
+" Split windows to the right
+set splitright
+
 "============= Editing Vimrc ==================================================
 
 " open my vimrc in a split
