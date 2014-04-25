@@ -256,6 +256,10 @@ command! DOS  set ff=dos  " force windows style line endings
 command! UNIX set ff=unix " force unix style line endings
 command! MAC  set ff=mac  " force mac style line endings
 
+
+" Remove the ^M characters from files
+command! RemoveEm :%s///g
+
 " This will display the path of the current file in the status line
 " It will also copy the path to the unnamed register so it can be pasted
 " with p or C-r C-r
@@ -272,7 +276,8 @@ endfunc
 let g:session_dir = $HOME."/.vim/session"
 
 " set session name using Ses command
-command! -nargs=1 Ses let g:sessionname=<f-args>
+command! -nargs=1 SessionName let g:sessionname=<f-args>
+command! SessionSaveBuffersOnly :set sessionoptions=buffers,args
 
 " Save sessions whenever vim closes
 autocmd VimLeave * call SaveSession()

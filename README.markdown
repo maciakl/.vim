@@ -12,7 +12,7 @@ you want to restore from an existing session if you open vim without a file
 argument. Session names are created based on the `--servername` argument. The
 default for gvim is `GVIM`. If you want to create a unique session you can do:
 
-    :Ses sessionname
+    :SessionName sessionname
 
 Then launch vim with that session name to restore:
 
@@ -20,9 +20,13 @@ Then launch vim with that session name to restore:
 
 Note that sessions preserve environment. If you updated `.vimrc` or plugins you
 will need to manually source them after launching. If your session just got 
-weird, you can blow away everything other than the buffer list by setting:
+weird, you can blow away everything other than the buffer list by doing:
 
-   :set sessionoptions=buffers,args
+    :SessionSaveBuffersOnly
+
+This is the same as setting:
+
+    :set sessionoptions=buffers,args
 
 Then quit and re-launch to clean environment with the buffer list and arglist
 intact.
@@ -100,14 +104,15 @@ The `<leader>` key is bound to `<space>` because space is cool.
 Custom Commands
 ---
 
-* `:VIMRC`    -  open .vimrc in current windows
-* `:SOURCE`   -  source .vimrc
-* `:DOS`      -  set file format to dos
-* `:UNIX`     -  set file format to unix
-* `:MAC`      -  set file format to mac
-* `:FILEPATH` -  display the file path in the status line
-* `:Ses`      -  set session name for current session
-* `:SPCLEAN`  -  runs cleanup routine on spell-check files
+* `:VIMRC`                  - open .vimrc in current windows
+* `:SOURCE`                 - source .vimrc
+* `:DOS`                    - set file format to dos
+* `:UNIX`                   - set file format to unix
+* `:MAC`                    - set file format to mac
+* `:FILEPATH`               - display the file path in the status line
+* `:SessionName`            - set session name for current session
+* `:SessionSaveBuffersOnly` - save only buffers on exit (same as `set ssop=buffers,args`)
+* `:SPCLEAN`                - runs cleanup routine on spell                          - check files
 
 Deploying
 ---
