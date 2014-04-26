@@ -26,7 +26,7 @@ weird, you can blow away everything other than the buffer list by doing:
 
 This is the same as setting:
 
-    :set sessionoptions=buffers,args
+    :set sessionoptions=buffers
 
 Then quit and re-launch to clean environment with the buffer list and arglist
 intact.
@@ -64,6 +64,7 @@ These are the custom plugins I use:
 * [Vim-indent-object](https://github.com/michaeljsmith/vim-indent-object) - text object for Python indent block
 * [Vim-matchit](https://github.com/edsono/vim-matchit) - skip to closing HTML tag with `%`
 * [Vim-neatstatus](https://github.com/maciakl/vim-neatstatus) - simple status line with colors
+* [Vim-ruby-sinatra](https://github.com/hallison/vim-ruby-sinatra) - syntax and snippets for sinatra framework
 * [Vim-signature](https://github.com/kshenoy/vim-signature) - easy navigation with marks (displays in gutter)
 * [Vim-surround](https://github.com/tpope/vim-surround) - bindings to easily surround text with stuff
 
@@ -112,7 +113,8 @@ Custom Commands
 * `:FILEPATH`               - display the file path in the status line
 * `:SessionName`            - set session name for current session
 * `:SessionSaveBuffersOnly` - save only buffers on exit (same as `set ssop=buffers,args`)
-* `:SPCLEAN`                - runs cleanup routine on spell                          - check files
+* `:SPCLEAN`                - runs cleanup routine on spell-check files
+* `:RemoveEm`               - remove the `^M` symbols from the file
 
 Deploying
 ---

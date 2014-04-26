@@ -95,7 +95,7 @@ endif
 
 " FONT SETTINGS for all platforms
 if has('win32')
-                    set gfn=Consolas:h11:cANSI
+                    set gfn=Consolas:h10:cANSI
 elseif has('mac')
                     set gfn=Monaco:h12	
 else   
@@ -277,7 +277,7 @@ let g:session_dir = $HOME."/.vim/session"
 
 " set session name using Ses command
 command! -nargs=1 SessionName let g:sessionname=<f-args>
-command! SessionSaveBuffersOnly :set sessionoptions=buffers,args
+command! SessionSaveBuffersOnly :set sessionoptions=buffers
 
 " Save sessions whenever vim closes
 autocmd VimLeave * call SaveSession()
