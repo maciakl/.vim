@@ -62,6 +62,7 @@ These are the custom plugins I use:
 * [Vim-Rails](https://github.com/tpope/vim-rails) - ruby on rails integration and commands
 * [Vim-SuperTab](https://github.com/tsaleh/vim-supertab) - super-charge the tab key
 * [Vim-indent-object](https://github.com/michaeljsmith/vim-indent-object) - text object for Python indent block
+* [Vim-liquid](https://github.com/tpope/vim-liquid) - support for Liquid with Jekyll extensions for blogging.
 * [Vim-matchit](https://github.com/edsono/vim-matchit) - skip to closing HTML tag with `%`
 * [Vim-neatstatus](https://github.com/maciakl/vim-neatstatus) - simple status line with colors
 * [Vim-ruby-sinatra](https://github.com/hallison/vim-ruby-sinatra) - syntax and snippets for sinatra framework
