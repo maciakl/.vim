@@ -1,4 +1,8 @@
-﻿snippet exists
+﻿snippet command
 	command -v ${1:command} >/dev/null 2>&1 || { echo "$1 not found. Please install it and try again"; exit 1; }
 snippet uname
 	$(uname -s) == ${1:Linux/Dawin/Cygwin}
+snippet colors
+	[ -f "$HOME/scripts/colors" ] && source $HOME/scripts/colors
+snippet $
+	[ -z ${1: param} ] && { echo -e "\n$Color_Red ERROR:$Color_Off ${2: error message}"; exit 1; }
