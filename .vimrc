@@ -231,6 +231,14 @@ nnoremap <C-Down> :Unite file_rec -no-split -start-insert -buffer-name=FilesRec<
 " Split windows to the right
 set splitright
 
+" Open the file under cursor in the existing split. If no splits are open,
+" do nothing. Explanation:
+"   :let myfile=expand("<cfile>") -  grabs the name under cursor
+"   <C-W>w                        -  jump to the next available window
+"   :execute("e ".myfile)         -  opens the saved file name in current window
+"   <C-W>p                        -  jumps back to the previous window
+nnoremap <leader>f :let myfile=expand("<cfile>")<CR><C-W>w :exec("e ".myfile)<CR><C-W>p
+
 "============= Editing Vimrc ==================================================
 
 " open my vimrc in a split
