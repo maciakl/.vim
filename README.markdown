@@ -56,6 +56,7 @@ These are the custom plugins I use:
 * [Unite.vim](https://github.com/Shougo/unite.vim) - file/buffer/history browsing
 * [Vim-Align](https://github.com/tsaleh/vim-align) - auto-align code chunks (like Tabular)
 * [Vim-AutoClose](https://github.com/Townk/vim-autoclose) - auto close parens and brackets
+* [Vim-Coffee-Script](https://github.com/kchmck/vim-coffee-script) - Coffeescript syntax highlighting and helpers
 * [Vim-Fugitive](https://github.com/tpope/vim-fugitive) - git integration
 * [Vim-Git](https://github.com/tpope/vim-git) - runtime rules for git commit, gitignore and etc..
 * [Vim-Markdown](https://github.com/plasticboy/vim-markdown) - syntax highlighting and matching rules for Markdown.
@@ -77,6 +78,7 @@ The `<leader>` key is bound to `<space>` because space is cool.
 * `+` and `-`                   -  increment and decrement number under cursor
 * `<C-BS>`                      -  ctrl+backspace deletes last word
 * `<C-Del>`                     -  ctrl+Del deletes next word
+* `<C-F>`                       -  opens the file under cursor in the 2nd split window if open
 * `<C-L>`                       -  fix last typo
 * `<C-P>`                       -  generate PHPDoc comments at cursor (defined in `ftplugin/php.vim`)
 * `<C-R>`                       -  paste in contents of the unnamed register
