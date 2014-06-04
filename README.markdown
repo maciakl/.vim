@@ -53,6 +53,7 @@ These are the custom plugins I use:
 * [SnipMate](https://github.com/msanders/snipmate.vim) - auto-complete code snippets
 * [Tabular](https://github.com/godlygeek/tabular) - auto-align code chunks
 * [TagList](https://github.com/vim-scripts/taglist.vim) - browse the tag list
+* [Tex-AutoClose](https://github.com/vim-scripts/tex_autoclose.vim) - auto close tex environments
 * [Unite.vim](https://github.com/Shougo/unite.vim) - file/buffer/history browsing
 * [Vim-Align](https://github.com/tsaleh/vim-align) - auto-align code chunks (like Tabular)
 * [Vim-AutoClose](https://github.com/Townk/vim-autoclose) - auto close parens and brackets
@@ -83,7 +84,7 @@ The `<leader>` key is bound to `<space>` because space is cool.
 * `<C-P>`                       -  generate PHPDoc comments at cursor (defined in `ftplugin/php.vim`)
 * `<C-R>`                       -  paste in contents of the unnamed register
 * `<C-Tab>`                     -  toggle between splits
-* `<C-_>`                       -  close html tag
+* `<C-_>`                       -  close html tag (closetag.vim) or tex environment (tex-autoclose.vim)
 * `<Down>`                      -  search current directory for files with Unite
 * `<F10>`                       -  insert current date at cursor
 * `<F1>`                        -  toggle NERDTree file browser
