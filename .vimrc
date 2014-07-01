@@ -134,9 +134,6 @@ xnoremap k gk
 nnoremap <F10> "=strftime("%a %b %d, %Y")<CR>P
 inoremap <F10> <C-R>=strftime("%a %b %d, %Y")<CR>
 
-" run ctags on current directory recursively
-nnoremap <f6> :!ctags -R<cr>
-
 " pressing <leader><space> clears the search highlights
 nmap <silent> <leader><space> :nohlsearch<CR>
 
@@ -263,6 +260,9 @@ command! Q q
 command! DOS  set ff=dos  " force windows style line endings
 command! UNIX set ff=unix " force unix style line endings
 command! MAC  set ff=mac  " force mac style line endings
+
+" run ctags on current directory recursively
+command! CTAGS !ctags -R
 
 
 " Remove the ^M characters from files

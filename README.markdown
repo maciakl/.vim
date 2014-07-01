@@ -91,7 +91,6 @@ The `<leader>` key is bound to `<space>` because space is cool.
 * `<F2>`                        -  toggle Tag List buffer
 * `<F3>`                        -  toggle paste mode
 * `<F5>`                        -  toggle relative and absolute line numbering
-* `<F6>`                        -  run `ctags` on project
 * `<F7>`                        -  toggle Gundo undo browser
 * `<Left>` and `<Right>`        -  browse through buffers
 * `<S-Tab>`                     -  Auto expand and/or jump when using ZenCoding plugin
@@ -115,6 +114,7 @@ Custom Commands
 * `:UNIX`                   - set file format to unix
 * `:MAC`                    - set file format to mac
 * `:FILEPATH`               - display the file path in the status line
+* `:CTAGS`                  -  run `ctags` recursively on project directory
 * `:SessionName`            - set session name for current session
 * `:SessionSaveBuffersOnly` - save only buffers on exit (same as `set ssop=buffers,args`)
 * `:SPCLEAN`                - runs cleanup routine on spell-check files
