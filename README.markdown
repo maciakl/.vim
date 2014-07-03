@@ -20,13 +20,13 @@ Then launch vim with that session name to restore:
 
 Note that sessions preserve environment. If you updated `.vimrc` or plugins you
 will need to manually source them after launching. If your session just got 
-weird, you can blow away everything other than the buffer list by doing:
+weird, you can blow away everything other than the buffer and tab list by doing:
 
-    :SessionSaveBuffersOnly
+    :SessionCleanSave
 
 This is the same as setting:
 
-    :set sessionoptions=buffers
+    :set sessionoptions=blank,buffers,curdir,tabpages
 
 Then quit and re-launch to clean environment with the buffer list and arglist
 intact.

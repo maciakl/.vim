@@ -285,7 +285,7 @@ let g:session_dir = $HOME."/.vim/session"
 
 " set session name using Ses command
 command! -nargs=1 SessionName let g:sessionname=<f-args>
-command! SessionSaveBuffersOnly :set sessionoptions=buffers
+command! SessionCleanSave :set sessionoptions=blank,buffers,curdir,tabpages
 
 " Save sessions whenever vim closes
 autocmd VimLeave * call SaveSession()
