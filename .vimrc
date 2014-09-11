@@ -97,7 +97,7 @@ endif
 if has('win32')
                     set gfn=Consolas:h10:cANSI
 elseif has('mac')
-                    set gfn=Monaco:h12	
+                    set gfn=Monaco:h13	
 else   
                     set gfn=Inconsolata\ Medium\ 10
 endif
