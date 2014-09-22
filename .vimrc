@@ -400,6 +400,10 @@ set guicursor=a:blinkon0
 set formatoptions=l
 set lbr
 
+" allow displaying parts of the last line instead of replacing them with @ for
+" exceptionally long lines
+set display+=lastline
+
 " Keep inserting comment leader character on subsequent lines
 set formatoptions+=or
 
