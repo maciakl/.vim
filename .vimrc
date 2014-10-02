@@ -271,9 +271,9 @@ command! RemoveEm :%s///g
 " This will display the path of the current file in the status line
 " It will also copy the path to the unnamed register so it can be pasted
 " with p or C-r C-r
-command! FILEPATH call g:getFilePath()
+command! FILEPATH call g:GetFilePath()
 
-function! g:getFilePath()
+function! g:GetFilePath()
     let @" = expand("%:p")
     echom "Current file:" expand("%:p")
 endfunc
@@ -338,8 +338,8 @@ endfunc
 
 " Open or create a custom SnipMate snippet file for the current file type
 " I use this to quickly add snippets from currently edited files
-command! SNIP call g:editSnipmateFile()
-function! g:editSnipmateFile()
+command! SNIP call g:EditSnipmateFile()
+function! g:EditSnipmateFile()
     let p=$HOME."/.vim/bundle/snipmate-custom-snippets/snippets/".&ft.".snippets"
     exec "edit ".p
 endfunc
