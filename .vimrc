@@ -97,7 +97,7 @@ endif
 if has('win32')
                     set gfn=Consolas:h10:cANSI
 elseif has('mac')
-                    set gfn=Monaco:h12	
+                    set gfn=Monaco:h13	
 else   
                     set gfn=Inconsolata\ Medium\ 10
 endif
@@ -399,6 +399,10 @@ set guicursor=a:blinkon0
 " enable soft word wrap
 set formatoptions=l
 set lbr
+
+" allow displaying parts of the last line instead of replacing them with @ for
+" exceptionally long lines
+set display+=lastline
 
 " Keep inserting comment leader character on subsequent lines
 set formatoptions+=or
