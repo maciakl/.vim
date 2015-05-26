@@ -57,8 +57,8 @@ if has('win32')
         "set shellslash
 
     " Use Powershell as the default shell on windows:
-    set shell=powershell
-    set shellcmdflag=-command
+    "set shell=powershell
+    "set shellcmdflag=-command
 
     " Fix Ruby path to ensure things are working
     " this may need to be changed on your system
