@@ -356,7 +356,10 @@ command! SPCLEAN :runtime spell/cleanadd.vim
 " Line numbers (set relative in 7.3 because it's useful); 
 " Fall back to absolute if 7.2 and lower
 if v:version >= 703
-    set relativenumber 	" if version 7.3 set relative line numbers
+    set number          " set absolute number
+    set relativenumber 	" if version 7.3 this will change to relative line numbers
+    " if version is 7.4+ the two lines will activate both - this means that
+    " the current line will be displayed as absolute, while others as relative
 
     " toggle between relative and absolute line numbers
     " this will only be defined if vim supports it
