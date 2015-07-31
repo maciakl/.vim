@@ -101,7 +101,7 @@ elseif has('mac')
                     set gfn=Monaco:h13	
 else   
                     "set gfn=Inconsolata\ Medium\ 10
-                    set gfn=Monaco:h10	
+                    set gfn=Monaco	
 endif
 
 " remove unnecessary toolbars (why do they exist anyway?)
