@@ -95,11 +95,13 @@ endif
 
 " FONT SETTINGS for all platforms
 if has('win32')
-                    set gfn=Consolas:h10:cANSI
+                    "set gfn=Consolas:h10:cANSI
+                    set gfn=Monaco:h10	
 elseif has('mac')
                     set gfn=Monaco:h13	
 else   
-                    set gfn=Inconsolata\ Medium\ 10
+                    "set gfn=Inconsolata\ Medium\ 10
+                    set gfn=Monaco:h10	
 endif
 
 " remove unnecessary toolbars (why do they exist anyway?)
