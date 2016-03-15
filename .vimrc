@@ -439,7 +439,7 @@ set novisualbell 	" suppress bell blink
 "============= History ========================================================
 
 " save more in undo history
-set history=1000000
+set history=1000
 set undolevels=1000000
 
 if v:version >= 703
