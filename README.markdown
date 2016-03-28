@@ -47,7 +47,6 @@ These are the custom plugins I use:
 * [Emmet.vim](https://github.com/mattn/emmet-vim) - automated expansion for html and css
 * [Gundo](https://github.com/sjl/gundo.vim) - browse the undo tree in the sidebar
 * [NERDcommenter](https://github.com/scrooloose/nerdcommenter) - auto-commenting
-* [NERDtree](https://github.com/scrooloose/nerdtree) - file browser plugin
 * [ObviousMode](https://github.com/bsl/obviousmode) - change color of sidebar depending on mode
 * [PHPDocumentator](https://github.com/vim-scripts/PDV--phpDocumentor-for-Vim) - generate PHPDoc comments
 * [SnipMate](https://github.com/msanders/snipmate.vim) - auto-complete code snippets
@@ -87,13 +86,12 @@ The `<leader>` key is bound to `<space>` because space is cool.
 * `<C-_>`                       -  close html tag (closetag.vim) or tex environment (tex-autoclose.vim)
 * `<Down>`                      -  search current directory for files with Unite
 * `<F10>`                       -  insert current date at cursor
-* `<F1>`                        -  toggle NERDTree file browser
 * `<F2>`                        -  toggle Tag List buffer
 * `<F3>`                        -  toggle paste mode
 * `<F5>`                        -  toggle relative and absolute line numbering
 * `<F7>`                        -  toggle Gundo undo browser
 * `<Left>` and `<Right>`        -  browse through buffers
-* `<S-Tab>`                     -  Auto expand and/or jump when using ZenCoding plugin
+* `<S-Tab>`                     -  Auto expand and/or jump when using Emmet plugin
 * `<Tab>`                       -  next buffer
 * `<Up>`                        -  search/display open buffers with Unite
 * `<leader><cr>`                -  break line at cursor (normal mode)
