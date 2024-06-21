@@ -1,3 +1,18 @@
+# Deprecation Note
+
+Around 2023 I switched to Neovim as my main editor. You can still use this as a template, but I likely won't be making many changes or updates.
+
+Check out my [Neovim config](https://github.com/maciakl/neovim).
+
+This is my current, juiced up IDE mode with LVM and Copilot.
+
+For minimalistic .vimrc that I usually ssh into the servers, see [Minimalistic Vimrc](https://gist.github.com/maciakl/6e5c8021b6db6626deb12033d0f5d1a4).
+
+More info about what worked and what didn't in this setup: [Lesons Learned](#lessons-learned)
+
+----
+
+
 My Personal Vim Settings
 ===
 
@@ -182,3 +197,17 @@ Mac is a little trickier:
 Then add this to `.basrc` or `.profile`:
 
     alias ctags="`brew --prefix`/bin/ctags"
+
+----
+
+# Lessons Learned
+
+Here are some things that work or did not work:
+
+- Git submodules are the worst way of managing dependencies
+- Plugin management has improved a lot since the days of Pathogen
+- Somehow `ctags` were always a major pain and most fragile element of the setup
+- A lot of the extensions here broke, or became obsolete
+- Having actual LVM support makes a lot of the plugins irrelevant
+- Unite worked, but what I really wanted was [Telescope](https://github.com/nvim-telescope/telescope.nvim)
+- Sessions were an interesting idea that I initally really liked and used, but then fell out of love with
